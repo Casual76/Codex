@@ -1,0 +1,21 @@
+{
+    "app": {
+        "id": "Codex",
+        "name": "Codex",
+        "description": "Social con crittografia end-to-end via immagini bit map e chiave segreta",
+        "packageName": "",
+        "iconUrl": "",
+        "category": "Social",
+        "developer": "Pampa",
+        "screenshots": [],
+        "repository": {
+            "repoOwner": "Casual76",
+            "repoName": "Codex",
+            "manifestPath": "manifest.json",
+            "ref": ""
+        },
+        "stable": null,
+        "beta": null,
+        "history": []
+    }
+}
