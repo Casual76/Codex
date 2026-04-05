@@ -3,7 +3,7 @@
         "id": "Codex",
         "name": "Codex",
         "description": "Social con crittografia end-to-end via immagini bit map e chiave segreta",
-        "packageName": "",
+        "packageName": "com.codex.app",
         "iconUrl": "",
         "category": "Social",
         "developer": "Pampa",
@@ -14,8 +14,24 @@
             "manifestPath": "manifest.json",
             "ref": ""
         },
-        "stable": null,
-        "beta": null,
+        "stable": {
+            "version": "0.2.4",
+            "releaseDate": "2026-04-05",
+            "changelog": "Bozza generata automaticamente dal profilo Codex per la versione 0.2.4. Asset rilevati: app-release.apk.",
+            "releaseTag": "stable-Codex-v0.2.4",
+            "apkAsset": "Codex-0.2.4.apk",
+            "exeAsset": "",
+            "sizeBytes": 0
+        },
+        "beta": {
+            "version": "0.2.4",
+            "releaseDate": "2026-04-05",
+            "changelog": "Bozza generata automaticamente dal profilo Codex per la versione 0.2.4. Asset rilevati: app-release.apk.",
+            "releaseTag": "stable-Codex-v0.2.4",
+            "apkAsset": "Codex-0.2.4.apk",
+            "exeAsset": "",
+            "sizeBytes": 0
+        },
         "history": []
     }
 }
