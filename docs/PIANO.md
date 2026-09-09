@@ -2122,6 +2122,39 @@ build di rilascio, che è l'unico pezzo che R8 non ha ancora attraversato.
 - **La correzione dell'engine è su GitHub**: `engine-1.30.1` spinta su `Casual76/fluid-engine`, così
   ce l'hanno anche le altre app.
 
+#### Il primo commit (2026-09-09)
+
+Il sorgente è su `Casual76/Codex`: 291 file, quarantatremila righe, un commit solo. Fino a ieri il
+repo conteneva **soltanto** il manifest del Pampa Store, mentre la schermata "Informazioni" diceva
+già a tutti che il sorgente era lì. Adesso è vero. Niente segreti: `google-services.json`,
+`keystore.properties`, i keystore e `local.properties` erano già esclusi, e il `firestore-debug.log`
+che l'emulatore lascia accanto ai test delle regole è stato tolto dall'indice e aggiunto al
+`.gitignore` prima di committare.
+
+Serviva anche per pubblicare: `publisher.py` rifiuta una release con l'albero sporco
+(«Live publish preflight is not ready: source worktree is not clean»), ed è una buona regola —
+un APK sullo store senza il codice che gli corrisponde è un APK di cui nessuno può più dire da dove
+viene.
+
+#### App Check, e perché la beta aspetta (2026-09-09)
+
+Acceso l'enforcement, **ogni** lettura e scrittura di Firestore dalla build di lavoro torna
+`PERMISSION_DENIED`. Non è un difetto: è App Check che fa il suo mestiere, e nessuno dei due
+fornitori può dargli un gettone valido.
+
+- In sviluppo serve registrare il **gettone di debug** che Firebase stampa nel logcat al primo
+  avvio. Senza, l'app di lavoro non parla più col progetto vero.
+- In rilascio c'è un problema più profondo: **Play Integrity attesta le app che passano dalla Play
+  Console**, e Codex esce dal Pampa Store. La documentazione dice che si può fare lo stesso, a due
+  condizioni: l'app va registrata nella Play Console (Release → App integrity → Play Integrity API,
+  collegata al progetto Firebase), e in *App Check → Apps* i verdetti `PLAY_RECOGNIZED` e `LICENSED`
+  vanno messi su **non richiesti**. Senza, il gettone non arriva e ogni chiamata viene rifiutata:
+  la beta sarebbe un'app che funziona solo sul telefono di chi la installa.
+
+Decisione: per la beta **App Check resta in monitoraggio** (acceso, misura, non blocca). Il codice
+che installa l'attestazione resta dov'è: quando i verdetti diranno che i gettoni arrivano davvero,
+l'enforcement si accende senza toccare una riga.
+
 ---
 
 ## 13. Test e qualità
