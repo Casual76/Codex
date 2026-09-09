@@ -1,0 +1,55 @@
+rules_version = '2';
+
+// I media cifrati di Codex (PIANO.md §5.7).
+//
+// **Quello che sta qui dentro e' rumore.** Ogni file e' cifrato a blocchi con una chiave che nasce
+// dalla chiave della conversazione (vedi `MediaCipher`): il server non puo' aprirlo, e non puo'
+// nemmeno dire se e' una foto o una nota vocale -- sono tutti `application/octet-stream`, e il tipo
+// vero sta dentro la busta del messaggio, cifrato.
+//
+// Queste regole percio' non proteggono il contenuto: proteggono **chi puo' scaricare e chi puo'
+// caricare**, che e' un problema diverso. Senza, chiunque conoscesse il nome di un file potrebbe
+// tirarselo giu' -- illeggibile, ma tirarselo giu' -- e chiunque potrebbe riempire lo spazio di
+// qualcun altro.
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    match /media/{chatId}/{mediaId} {
+
+      // L'appartenenza si chiede a Firestore, che e' l'unico posto in cui e' scritta. **`exists`
+      // prima di `get`**: su un documento che non c'e' `get` manda in errore la valutazione, e un
+      // errore qui diventa un rifiuto -- lo stesso difetto che sulle regole di Firestore ha fatto
+      // fallire la prima consegna di ogni conversazione.
+      function belongsToChat() {
+        return request.auth != null
+          && firestore.exists(/databases/(default)/documents/chats/$(chatId))
+          && request.auth.uid in
+            firestore.get(/databases/(default)/documents/chats/$(chatId)).data.memberUids;
+      }
+
+      allow read: if belongsToChat();
+
+      // Si carica una volta sola e non si riscrive: un media e' immutabile per costruzione -- il suo
+      // identificatore nasce dal messaggio che lo porta. Poter sostituire il contenuto di un file
+      // gia' consegnato vorrebbe dire cambiare un messaggio dopo che e' stato letto.
+      //
+      // **`resource == null` non e' ridondante.** `allow update: if false` da solo sembra bastare,
+      // e leggendo le regole lo si crede; il test lo ha smentito -- un caricamento su un percorso
+      // gia' occupato passava lo stesso, valutato come una creazione. E' la riga che rende vera
+      // l'immutabilita', e senza il test non ci sarebbe.
+      allow create: if belongsToChat()
+        && resource == null
+        && request.resource.size < 30 * 1024 * 1024
+        && request.resource.contentType == 'application/octet-stream';
+      allow update: if false;
+
+      // Cancella un membro: serve al "visualizza una volta" e alla pulizia di una chat.
+      allow delete: if belongsToChat();
+    }
+
+    // Tutto il resto e' chiuso. Non c'e' nessun altro posto in cui Codex metta dei file.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

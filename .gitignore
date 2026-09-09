@@ -1,0 +1,48 @@
+# Build
+/build/
+/**/build/
+/.gradle/
+/.kotlin/
+/captures/
+*.apk.idsig
+/app/release/
+/app/debug/
+
+# IDE
+/.idea/
+*.iml
+/.vscode/
+/local.properties
+
+# Segreti: mai nel repo
+/keystore.properties
+/app/google-services.json
+*.jks
+*.keystore
+/functions/.env*
+/functions/serviceAccount*.json
+
+# Node (Cloud Functions e test delle regole)
+/functions/node_modules/
+/functions/lib/
+/firebase/test/node_modules/
+/firebase/test/package-lock.json
+/firebase-debug.log
+/.firebase/
+/firestore-debug.log
+# ...e quelli che l'emulatore lascia accanto ai test delle regole.
+firestore-debug.log
+storage-debug.log
+/ui-debug.log
+
+# Cattura fotogrammi e artefatti di test
+/artifacts/
+/tools/frames-out/
+
+# Python degli script in tools/: bytecode, non sorgente
+__pycache__/
+*.pyc
+
+# Log di build temporanei
+/build-*.log
+/test-*.log

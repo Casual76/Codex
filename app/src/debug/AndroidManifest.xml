@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Aggiunte che valgono **solo per le build di lavoro**.
+
+  L'unica e' il permesso di parlare in chiaro con l'emulatore di Firebase, che gira sul computer di
+  chi sviluppa: vedi `res/xml/network_security_config.xml`. Nella release non c'e' nessuno di questi
+  due file, e resta `usesCleartextTraffic="false"` del manifest principale.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <application
+    android:networkSecurityConfig="@xml/network_security_config"
+    tools:targetApi="n" />
+</manifest>

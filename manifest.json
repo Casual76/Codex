@@ -2,8 +2,8 @@
     "app": {
         "id": "Codex",
         "name": "Codex",
-        "description": "Social con crittografia end-to-end via immagini bit map e chiave segreta",
-        "packageName": "com.codex.app",
+        "description": "Messaggi che non si leggono: si aprono. Ogni messaggio arriva chiuso in una forma -- rune, una roccia, un quadro -- e si apre con un tocco. Crittografia vera da telefono a telefono, anche senza rete quando siete nella stessa stanza.",
+        "packageName": "dev.pampa.codex",
         "iconUrl": "",
         "category": "Social",
         "developer": "Pampa",
@@ -33,5 +33,17 @@
             "sizeBytes": 0
         },
         "history": []
+    },
+    "engine": {
+        "schema": 1,
+        "minimumVersion": "1.30.1",
+        "recommendedVersion": "1.30.1",
+        "notice": null,
+        "flags": {},
+        "killSwitch": {
+            "enabled": false,
+            "message": null
+        },
+        "overrides": {}
     }
 }

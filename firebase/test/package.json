@@ -1,0 +1,14 @@
+{
+  "name": "codex-rules-test",
+  "private": true,
+  "type": "module",
+  "description": "Prove delle regole Firestore e Storage di Codex, contro l'emulatore (PIANO.md §13).",
+  "scripts": {
+    "test": "node --test --test-concurrency=1",
+    "emulate": "firebase emulators:exec --only firestore,storage --project codex-test --config ../../firebase.test.json \"node --test --test-concurrency=1\""
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^4.0.1",
+    "firebase": "^11.0.0"
+  }
+}

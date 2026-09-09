@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Codex</string>
+
+  <!-- Navigation -->
+  <string name="tab_chats">Chats</string>
+  <string name="tab_stories">Stories</string>
+  <string name="tab_me">Me</string>
+
+  <!-- Common actions -->
+  <string name="action_continue">Continue</string>
+  <string name="action_confirm">Confirm</string>
+  <string name="action_cancel">Cancel</string>
+  <string name="action_save">Save</string>
+  <string name="action_paste">Paste from the clipboard</string>
+  <string name="action_copy">Copy</string>
+  <string name="action_enable">Turn on</string>
+  <string name="action_not_now">Not now</string>
+  <string name="action_ok">All right</string>
+  <string name="action_finish">Start</string>
+  <string name="action_unlock">Unlock</string>
+  <string name="action_reset">Erase everything</string>
+  <string name="action_use_secret">Use your secret</string>
+
+  <!-- Onboarding -->
+  <string name="onboarding_welcome_tap">Tap the seal</string>
+  <string name="onboarding_welcome_hint">On Codex you don\'t read messages: you open them.</string>
+  <string name="onboarding_welcome_title">Welcome to Codex</string>
+  <string name="onboarding_welcome_body">Every message arrives sealed in a shape you have to open. What you just did is the gesture you\'ll use every day.</string>
+  <string name="onboarding_name_title">What\'s your name?</string>
+  <string name="onboarding_name_body">Your name becomes the mineral your contacts will see next to you.</string>
+  <string name="onboarding_name_placeholder">Your name</string>
+  <string name="onboarding_name_reroll">Another mineral</string>
+  <string name="onboarding_secret_pin_title">Choose a PIN</string>
+  <string name="onboarding_secret_password_title">Choose a password</string>
+  <string name="onboarding_secret_confirm">Enter it again</string>
+  <string name="onboarding_secret_body">It protects your identity on this phone and links a second one. It cannot be recovered: forget it and you start over.</string>
+  <string name="onboarding_biometrics_title">Fingerprint or face</string>
+  <string name="onboarding_biometrics_body">Open Codex without typing your secret every time. The secret still works.</string>
+  <string name="onboarding_biometrics_unavailable">This phone has no usable biometrics. You\'ll open Codex with your secret.</string>
+  <string name="onboarding_biometrics_prompt">This ties your identity to this phone.</string>
+
+  <!-- Lock -->
+  <string name="lock_type_pin">PIN</string>
+  <string name="lock_type_password">Password</string>
+  <string name="lock_enter_pin">Enter your PIN</string>
+  <string name="lock_enter_password">Enter your password</string>
+  <string name="lock_password_placeholder">Password</string>
+  <string name="lock_password_hint">At least %1$d characters</string>
+  <string name="lock_secret_mismatch">The two entries don\'t match. Try again.</string>
+  <string name="lock_wrong">Wrong secret</string>
+  <string name="lock_wait">Too many attempts. Try again in %1$s.</string>
+  <string name="lock_biometric_title">Unlock Codex</string>
+  <string name="lock_biometric_subtitle">Use your fingerprint or face to open the app.</string>
+  <string name="lock_forgot">Forgot your secret?</string>
+  <string name="lock_reset_title">Start over</string>
+  <string name="lock_reset_message">Your secret cannot be recovered: that\'s what keeps your identity unreadable to everyone else. The only way forward is to erase your identity, contacts and messages and create a new one.</string>
+
+  <!-- Profile -->
+  <string name="profile_name">Name</string>
+  <string name="profile_name_detail">This is what your contacts see.</string>
+  <string name="profile_no_name">No name</string>
+  <string name="profile_codex_id">Codex ID</string>
+  <string name="profile_reroll">Change mineral</string>
+  <string name="profile_reroll_detail">Generates another one. Your identity stays the same.</string>
+
+  <!-- Security -->
+  <string name="section_security">Security</string>
+  <string name="security_biometrics">Fingerprint or face</string>
+  <string name="security_biometrics_detail">Open Codex without typing your secret.</string>
+  <string name="security_biometrics_not_enrolled">Enrol a fingerprint in your phone settings to use it here.</string>
+  <string name="security_biometrics_unavailable">Not available on this phone.</string>
+  <string name="security_change_title">Change secret</string>
+  <string name="security_change_current">Your current secret</string>
+  <string name="security_change_new">Your new secret</string>
+  <string name="security_change_confirm">Repeat the new secret</string>
+  <string name="security_change_error">That didn\'t work. Check and try again.</string>
+  <string name="security_lock_now">Lock now</string>
+  <string name="security_lock_now_detail">Closes your identity without closing the app.</string>
+  <string name="security_timeout">Auto-lock</string>
+  <string name="security_timeout_immediate">Instantly</string>
+  <string name="security_timeout_1m">1 min</string>
+  <string name="security_timeout_5m">5 min</string>
+  <string name="security_timeout_30m">30 min</string>
+
+  <!-- Chats -->
+  <string name="chats_title">Chats</string>
+  <string name="chats_subtitle">Your seals, opened and still closed.</string>
+  <string name="chats_empty_title">No chats yet</string>
+  <string name="chats_empty_detail">Add a contact to send your first seal.</string>
+  <string name="action_add_contact">Add</string>
+  <string name="action_my_seal">My seal</string>
+
+  <!-- Stories -->
+  <string name="stories_title">Stories</string>
+  <string name="stories_subtitle">Your contacts\' seal of the day.</string>
+  <string name="stories_empty_title">No stories</string>
+  <string name="stories_empty_detail">Stories last one day and open with a tap.</string>
+
+  <!-- Me -->
+  <string name="me_title">Me</string>
+  <string name="me_subtitle">Profile, security, appearance.</string>
+  <string name="section_appearance">Appearance</string>
+  <string name="theme_light">Light</string>
+  <string name="theme_dark">Dark</string>
+  <string name="theme_system">System</string>
+  <string name="row_dynamic_color">Dynamic color</string>
+  <string name="row_dynamic_color_detail">Takes its colors from your wallpaper.</string>
+  <string name="row_haptics">Haptics</string>
+  <string name="row_haptics_detail">Light vibrations on taps and seals.</string>
+  <string name="row_amoled">Pure black</string>
+  <string name="row_amoled_detail">True black surfaces in the dark theme.</string>
+  <string name="section_about">About</string>
+  <string name="row_version">Version</string>
+  <string name="row_engine">Fluid Engine</string>
+  <string name="row_updates">Updates</string>
+  <string name="update_tap_to_check">Tap to check</string>
+  <string name="update_checking">Checking…</string>
+  <string name="update_latest">You are up to date</string>
+  <string name="update_available">%1$s available: tap to install</string>
+  <string name="update_failed">Check failed: are you offline?</string>
+  <string name="update_downloading">Downloading… %1$d%%</string>
+  <string name="update_installed">Installed: reopen the app</string>
+  <string name="update_error">Error: %1$s</string>
+  <string name="update_debug_unavailable">Not available in development builds</string>
+  <string name="row_source">Source</string>
+  <string name="row_source_detail">github.com/Casual76/Codex</string>
+  <string name="row_origins">Origins</string>
+  <string name="row_origins_detail">The teacher\'s cipher and the story of Codex.</string>
+  <string name="row_playground">Playground</string>
+  <string name="row_playground_detail">The seals, with no chat around them. Development builds only.</string>
+
+  <!-- Danger zone -->
+  <string name="section_danger">Danger zone</string>
+  <string name="danger_reset">Erase everything</string>
+  <string name="danger_reset_detail">Identity, contacts and messages on this phone.</string>
+  <string name="danger_reset_message">You will lose your identity, your contacts and your keys. If you haven\'t linked another device, there is no way back.</string>
+  <string name="danger_reset_note">Codex keeps no copy of your keys anywhere: that\'s why nobody can read your messages, and also why nobody can give them back to you.</string>
+
+  <!-- Chat -->
+  <string name="chat_self_title">Notes to self</string>
+  <string name="chat_subtitle">Tap a seal to open it.</string>
+  <string name="chat_empty_title">No messages</string>
+  <string name="chat_empty_detail">Write something: it arrives sealed, and you get to open it.</string>
+  <string name="chat_placeholder">Write a message</string>
+  <string name="chat_send">Send</string>
+  <string name="chat_reveal_all">Reveal all</string>
+  <string name="message_burned">Sealed for good</string>
+  <string name="preview_rune">Runes to read</string>
+  <string name="preview_rock">A rock to break open</string>
+  <string name="preview_painting">A painting to look at</string>
+  <string name="preview_empty">Nothing yet</string>
+  <string name="technique_title">How to seal it</string>
+  <string name="technique_current">In use</string>
+  <string name="technique_surprise">Surprise</string>
+  <string name="technique_surprise_detail">The message decides its own shape. Neither of you knows which.</string>
+  <string name="technique_rune">Runes</string>
+  <string name="technique_rune_detail">The text arrives in an ancient alphabet and melts back letter by letter.</string>
+  <string name="technique_rock">Rock</string>
+  <string name="technique_rock_detail">A gem to crack open with a tap.</string>
+  <string name="technique_painting">Painting</string>
+  <string name="technique_painting_detail">A painting that crumbles and lets the message through.</string>
+
+  <!-- Origins -->
+  <string name="origins_title">Origins</string>
+  <string name="origins_subtitle">The teacher\'s cipher, and where Codex comes from.</string>
+  <string name="origins_story_1">Codex began with a civics test. The teacher had brought a photograph of a cipher table — an alphabet, syllables, names, signs that meant nothing at all — and the test on that table went badly.</string>
+  <string name="origins_story_2">That same afternoon, in two hours, a small program appeared: it enciphered a sentence and turned it into an image, so a friend could get an answer nobody else could read. That program became this app.</string>
+  <string name="origins_story_3">Of the table, though, the first version took only the shape. It reduced it to a numeric correspondence and threw away the way the cipher actually worked. This section exists to put that right.</string>
+  <string name="origins_cipher_title">The cipher</string>
+  <string name="origins_cipher_detail">It is not a substituted alphabet. It is a nomenclator, and it is five things at once. They are all in the photograph below.</string>
+  <string name="origins_part_alphabet">The alphabet</string>
+  <string name="origins_part_alphabet_detail">Twenty-two letters: a b c d e f g h i l m n o p q r s t v x y z. There is no u, because v did the work of both. The most frequent letters have more than one sign, stacked underneath: they are the ones an attacker counts first.</string>
+  <string name="origins_part_syllables">The syllables</string>
+  <string name="origins_part_syllables_detail">Fifteen consonants by five vowels, from ba be bi bo bu down to za ze zi zo zu, with the q row written qua que qui quo quu. Seventy-five signs worth two letters each.</string>
+  <string name="origins_part_doubles">The doubles</string>
+  <string name="origins_part_doubles_detail">bb cc dd ff gg ll mm nn pp rr ss tt uu. Thirteen of them, and Italian is full of doubles.</string>
+  <string name="origins_part_names">The nomenclator</string>
+  <string name="origins_part_names_detail">Pope, Emperor, King of France, Pisa, Florence, Army, Tomorrow, Salvestro, Sums, Germany. The words that came back in every dispatch, each with its own sign. This is the part the whole system is named after.</string>
+  <string name="origins_part_nulls">The nulls</string>
+  <string name="origins_part_nulls_detail">Nine signs that mean nothing, scattered through the text so that whoever intercepts it counts wrong.</string>
+  <string name="origins_try_title">Try it</string>
+  <string name="origins_try_detail">The signs below are not the flourishes in the manuscript. The structure is: counted off the photograph, with the same letters, syllables, doubles and words.</string>
+  <string name="origins_try_label">Write a sentence</string>
+  <string name="origins_try_sample">il papa scrive domani a firenze</string>
+  <string name="origins_try_show">Show what it means</string>
+  <string name="origins_try_hide">Hide it again</string>
+  <string name="origins_try_show_detail">What each sign stands for appears underneath it.</string>
+  <string name="origins_try_stats_zero">%1$d plain letters become %2$d signs, with no nulls.</string>
+  <plurals name="origins_try_stats">
+    <item quantity="one">%1$d plain letters become %2$d signs, plus one null.</item>
+    <item quantity="other">%1$d plain letters become %2$d signs, plus %3$d nulls.</item>
+  </plurals>
+  <string name="origins_table_title">The table</string>
+  <string name="origins_table_detail">%1$d entries, all different.</string>
+  <string name="origins_table_note">The signs are built the way the chanceries built theirs: a shape, with a dot or a bar above or below that makes it mean something else. Forty shapes are enough to fill a table of a hundred and twenty entries.</string>
+  <string name="origins_research_title">The research</string>
+  <string name="origins_research_1">We still know nothing certain about the table: not which archive it comes from, nor which chancery used it.</string>
+  <string name="origins_research_2">What can be read in the photograph does say something. Among the nomenclator words, Pisa and Florence appear as separate entries, next to the Emperor, the King of France and the Army, and further on Germany: a Tuscan chancery during the Italian Wars, between 1494 and 1530, with Pisa in revolt. Salvestro is a Florentine given name. It is a reading, not an attribution.</string>
+  <string name="origins_research_3">The shortest path is still to ask the teacher where the image came from. The others are these.</string>
+  <string name="origins_research_note">None of these sources has identified the document yet. When one does, this page will say so, with the name of the archive and the shelfmark.</string>
+
+  <!-- The painting that leaves and comes back -->
+  <string name="painting_open_label">Open with Codex</string>
+  <string name="painting_open">Open a painting</string>
+  <string name="painting_share">Share as an image</string>
+  <string name="painting_share_detail">A PNG with the message inside. Send it as a file: if it gets recompressed as a photo, the message is lost.</string>
+  <string name="painting_share_subject">A painting from Codex</string>
+  <string name="painting_import_pane">A painting to open</string>
+  <string name="painting_in_title">The message arrived</string>
+  <string name="painting_in_detail">It is in the chat, still sealed. Opening it is up to you.</string>
+  <string name="painting_known_title">You already have it</string>
+  <string name="painting_known_detail">This message is already in your conversation.</string>
+  <string name="painting_foreign_title">Not one of your chats</string>
+  <string name="painting_foreign_detail">The painting belongs to a conversation this phone does not have. What you need is the chat, not the file.</string>
+  <string name="painting_empty_title">Nothing inside</string>
+  <string name="painting_empty_detail">Either it is not a Codex painting, or it was forwarded as a photo: recompression erases the message. Ask for it as a file.</string>
+  <string name="painting_locked_title">It will not open</string>
+  <string name="painting_locked_detail">The message is there, but not with your keys. It may have been altered on the way.</string>
+  <string name="painting_open_chat">Open the chat</string>
+  <string name="action_close">Close</string>
+
+  <!-- Timeline and the menu of a message -->
+  <string name="chat_today">Today</string>
+  <string name="chat_yesterday">Yesterday</string>
+  <string name="message_actions">This message</string>
+  <string name="message_copy">Copy the text</string>
+  <string name="message_copy_detail">It goes to the phone clipboard, in the clear.</string>
+  <string name="message_delete">Delete</string>
+  <string name="message_delete_detail">It disappears from this phone. Whoever received it still has it.</string>
+
+  <!-- Stories -->
+  <string name="story_new">Your seal of the day</string>
+  <string name="story_new_detail">Write something: it stays sealed, and it lasts twenty-four hours.</string>
+  <string name="story_placeholder">What are you hiding today</string>
+  <string name="story_post">Post</string>
+  <string name="story_delete">Delete</string>
+  <string name="story_tap_hint">Tap the seal to open it. Closing seals it again.</string>
+  <string name="story_minutes_left">Less than an hour</string>
+  <string name="story_alone_title">For now it is only you</string>
+  <string name="story_alone_detail">Your contacts\' stories will appear here next to yours, once there are contacts.</string>
+  <plurals name="story_hours_left">
+    <item quantity="one">%1$d hour left</item>
+    <item quantity="other">%1$d hours left</item>
+  </plurals>
+
+  <!-- Expiry, view once, chat settings -->
+  <string name="view_once">View once</string>
+  <string name="view_once_detail">It opens, you read it, and when you leave the chat it is gone. It applies to the next message only.</string>
+  <string name="chat_info_subtitle">How this conversation behaves.</string>
+  <string name="chat_info_note">The expiry applies on this phone. Whoever received the message decides for theirs.</string>
+  <string name="ttl_title">Expiring messages</string>
+  <string name="ttl_detail">How long a message stays after it has been opened.</string>
+  <string name="ttl_never">Forever</string>
+  <string name="ttl_never_detail">Messages stay until you delete them.</string>
+  <string name="ttl_hour">One hour</string>
+  <string name="ttl_day">One day</string>
+  <string name="ttl_week">One week</string>
+  <string name="ttl_from_opening">The clock starts when you open it, not when it arrives.</string>
+  <string name="chat_clear">Empty the conversation</string>
+  <string name="chat_clear_detail">Every message in this chat, from this phone.</string>
+  <string name="chat_clear_message">The messages go from here and do not come back. The chat stays, empty.</string>
+
+  <!-- What a screen reader says about a sealed message -->
+  <string name="seal_closed_rune">Message sealed in runes</string>
+  <string name="seal_closed_rock">Message sealed in a rock</string>
+  <string name="seal_closed_painting">Message sealed in a painting</string>
+  <string name="seal_open_action">Open the seal</string>
+
+  <string name="origins_image_caption">The photograph of the table, the one the teacher brought to the lesson. It is a photo of a photocopy and it has not been retouched: tap to enlarge it.</string>
+  <string name="origins_image_zoom">Pinch to zoom, double tap to jump straight in.</string>
+
+  <!-- How far a message got -->
+  <string name="status_pending">Waiting to be sent</string>
+  <string name="status_sent">Sent</string>
+  <string name="status_delivered">Delivered</string>
+  <string name="status_read">Read</string>
+  <string name="status_failed">Not sent</string>
+
+  <string name="chat_typing">Typing…</string>
+  <string name="chat_online">Online</string>
+  <string name="section_visibility">What you let others see</string>
+  <string name="visibility_online">Let people see when you are online</string>
+  <string name="visibility_online_detail">Turn it off and you neither send it nor see it.</string>
+  <string name="visibility_typing">Let people see when you are typing</string>
+  <string name="visibility_typing_detail">Same rule: it works both ways.</string>
+  <string name="visibility_footnote">These have nothing to do with the contents of your messages, which stay unreadable to everyone regardless. They are only about what the people you talk to can know about you.</string>
+
+  <string name="chat_attach">Send a photo</string>
+  <string name="media_loading">Downloading…</string>
+  <string name="media_broken">This image will not open</string>
+  <string name="media_photo">The photo you received</string>
+  <string name="media_open">See the whole photo</string>
+  <string name="media_close">Close</string>
+  <string name="media_too_big">This photo is too large: the limit is 30 MB.</string>
+
+  <!-- Voice notes -->
+  <string name="voice_record">Record a voice note</string>
+  <string name="voice_recording">Recording…</string>
+  <string name="voice_send">Send the voice note</string>
+  <string name="voice_cancel">Cancel</string>
+  <string name="voice_play">Play</string>
+  <string name="voice_pause">Pause</string>
+  <string name="voice_message">Voice note</string>
+  <string name="voice_permission_title">The microphone is needed</string>
+  <string name="voice_permission_detail">To record a voice note Codex needs the microphone. The audio never leaves this phone in the clear: it is encrypted before it goes anywhere.</string>
+  <string name="voice_too_short">Too short: hold it a moment longer.</string>
+
+  <!-- Notifications -->
+  <string name="notification_channel_messages">Seals arriving</string>
+  <string name="notification_channel_messages_detail">Tells you a message has arrived. It never shows what is inside.</string>
+  <string name="notification_seal_arrived">Sent you a seal</string>
+  <string name="notification_from_unknown">Someone</string>
+
+  <!-- Account -->
+  <string name="section_account">Account</string>
+  <string name="account_sign_in">Connect a Google account</string>
+  <string name="account_sign_in_detail">The server needs it to know who to deliver to, and it makes your Codex ID findable.</string>
+  <string name="account_working">One moment…</string>
+  <string name="account_connected">Account connected</string>
+  <string name="account_sign_out">Disconnect</string>
+  <string name="account_sign_out_detail">Everything stays where it is: identity, conversations and messages live on this phone.</string>
+  <string name="account_cancelled">You closed the window. Nothing changed.</string>
+  <string name="account_no_account">No Google account on this device.</string>
+  <string name="account_failed">That did not work. Try again, or carry on without: Codex works either way.</string>
+  <string name="account_published">Connected. Your Codex ID can now be found.</string>
+  <string name="account_not_published">Connected, but your Codex ID is not findable yet. Try again later.</string>
+  <string name="account_footnote">The account does not open your identity: that lives in this phone\'s vault and opens with your secret. Google knows you use Codex, not what you write.</string>
+
+  <!-- Contacts and pairing -->
+  <string name="contacts_title">Contacts</string>
+  <string name="contacts_subtitle">Who you can open, and who can open you</string>
+  <string name="contacts_my_seal">My seal</string>
+  <string name="contacts_my_seal_hint">Show your code</string>
+  <string name="contacts_add">Add someone</string>
+  <string name="contacts_add_detail">Scan their seal, or paste their code</string>
+  <string name="contacts_empty_title">Nobody yet</string>
+  <string name="contacts_empty_detail">Adding someone takes two: one shows their seal, the other scans it. Then you swap.</string>
+  <string name="contacts_people">People</string>
+  <string name="contacts_state_open">Open</string>
+  <string name="contacts_state_sealed">Still sealed</string>
+  <string name="contacts_action_ritual">Do the rite again</string>
+  <string name="contacts_action_delete">Delete</string>
+  <string name="contacts_footnote">Someone on this list is not a conversation yet: that comes from the passphrase, and without it everything stays shut.</string>
+  <string name="contacts_delete_title">Delete %1$s?</string>
+  <string name="contacts_delete_message">The person, your conversation and the key that opened it all go. They do not come back.</string>
+
+  <string name="my_seal_title">My seal</string>
+  <string name="my_seal_subtitle">Hold it up to be scanned</string>
+  <string name="my_seal_qr_description">Your card as a code, for the other person to scan.</string>
+  <string name="my_seal_copy">Copy the code</string>
+  <string name="my_seal_footnote">There is no secret in here: your name, your mineral and your public keys, signed. You can send it in a message without a second thought.</string>
+
+  <string name="add_title">Add someone</string>
+  <string name="add_subtitle">Two ways, depending on where you are</string>
+  <string name="add_mode_scan">Scan</string>
+  <string name="add_mode_paste">Code</string>
+  <string name="add_paste_label">Their code, or their Codex ID</string>
+  <string name="add_paste_placeholder">CDX-7K3P-2M9Q</string>
+  <string name="add_paste_support">The long code always works. A Codex ID has to be looked up, so it needs the network.</string>
+  <string name="add_paste_from_clipboard">Take it from the clipboard</string>
+  <string name="add_paste_confirm">Add</string>
+  <string name="add_camera_why">Scanning a seal needs the camera. Codex uses it only here, looks at the frames on the phone, and keeps none of them.</string>
+  <string name="add_camera_allow">Use the camera</string>
+  <string name="add_error_myself">That is your own seal. Let the other person scan it instead.</string>
+  <string name="add_error_not_a_card">This code is not a Codex card, or it was damaged on the way.</string>
+  <string name="add_error_not_found">Nobody with that Codex ID. Check the letters, or ask them for the long code.</string>
+  <string name="add_error_unreachable">I cannot look that up right now. The long code works without the network.</string>
+  <string name="add_error_needs_account">Looking up a Codex ID needs an account. Scanning and pasting do not.</string>
+  <string name="add_footnote">Then it is their turn to scan yours: both cards are needed.</string>
+
+  <string name="ritual_title">The passphrase</string>
+  <string name="ritual_subtitle">The rite</string>
+  <string name="ritual_explain">Agree on a word out loud, face to face or on the phone. Do not type it in here and do not send it in a chat: it is the one thing that must never cross a screen.</string>
+  <string name="ritual_word_label">The word</string>
+  <string name="ritual_word_placeholder">the one you said</string>
+  <string name="ritual_word_support">Accents, capitals and punctuation do not count.</string>
+  <string name="ritual_perform">Open the conversation</string>
+  <string name="ritual_failed">That was not enough. Try the whole word.</string>
+  <string name="ritual_same_gem">Are you both seeing the same gem?</string>
+  <string name="ritual_yes">Yes, let us in</string>
+  <string name="ritual_no">No, let us redo it</string>
+  <string name="ritual_footnote_word">The word makes the key, and the key makes the gem. If you heard different words, you will see different gems.</string>
+  <string name="ritual_footnote_gem">If the two gems match, the conversation is yours and nobody else\'s. If they differ, something went wrong: do the rite again.</string>
+
+  <string name="message_sealed">Shut: the passphrase is missing</string>
+  <string name="message_unreadable">This one will not open</string>
+
+  <string name="message_delete_confirm">It goes from this phone and does not come back. If you sent it, whoever received it still has it.</string>
+
+  <string name="story_delete_confirm">It goes now, without waiting out the twenty-four hours. It does not come back.</string>
+  <string name="chat_info_action">Chat settings</string>
+
+  <!-- Groups -->
+  <string name="group_new">New group</string>
+  <string name="group_new_detail">A name, and the people in it</string>
+  <string name="group_name">What it is called</string>
+  <string name="group_name_hint">The group name</string>
+  <string name="group_members">Who is in</string>
+  <string name="group_members_detail">Pick from the people you have already added</string>
+  <string name="group_create">Create the group</string>
+  <string name="group_creating">Delivering the key…</string>
+  <string name="group_no_contacts">Add someone first: a group is made of people you already have.</string>
+  <string name="group_needs_two">Pick at least one person.</string>
+  <string name="group_needs_name">Give it a name.</string>
+  <string name="group_admin">Admin</string>
+  <string name="group_gone">Gone</string>
+  <string name="group_waiting_key">Waiting for the key</string>
+  <string name="group_waiting_key_detail">Whoever invited you has to open Codex once: the key is delivered by their phone, not by the server.</string>
+  <string name="group_people">%1$d people</string>
+  <string name="group_invite">Invite someone</string>
+  <string name="group_invite_detail">Copy an invitation to send however you like</string>
+  <string name="group_invite_copied">Invitation copied. It works as long as you are in the group.</string>
+  <string name="group_leave">Leave the group</string>
+  <string name="group_leave_detail">The messages stay, sealed. The key does not.</string>
+  <string name="group_leave_confirm">Leaving means losing the key: this group\'s messages will not open again, not even the old ones. Whoever stays gets a new one.</string>
+  <string name="group_remove">Remove from the group</string>
+  <string name="group_remove_confirm">%1$s will not read new messages. The old ones stay theirs: they were theirs.</string>
+  <string name="group_resend_key">Send the key again</string>
+  <string name="group_join">Join a group</string>
+  <string name="group_join_detail">Paste the invitation you were sent</string>
+  <string name="group_join_hint">codex://gruppo/…</string>
+  <string name="group_join_action">Ask to join</string>
+  <string name="group_join_sent">Asked. The group will appear when whoever invited you delivers the key.</string>
+  <string name="group_join_bad">This invitation does not read.</string>
+  <string name="group_join_unknown">Whoever invited you is not among your contacts yet: add their seal first.</string>
+  <string name="group_join_needs_account">Joining a group needs an account: the key has to be able to reach you.</string>
+
+  <!-- Nearby -->
+  <string name="section_nearby">Nearby</string>
+  <string name="nearby_detail">When one of your contacts is in the same room, messages go straight from one phone to the other. No internet, no server, no account.</string>
+  <string name="nearby_off">Off</string>
+  <string name="nearby_off_detail">No antenna running.</string>
+  <string name="nearby_foreground">While Codex is open</string>
+  <string name="nearby_foreground_detail">They start with the app and stop when you close it.</string>
+  <string name="nearby_always">Always</string>
+  <string name="nearby_always_detail">Even with the screen off. The system shows a notification while they run.</string>
+  <string name="nearby_current">In use</string>
+  <string name="nearby_permission_title">Bluetooth and Wi-Fi are needed</string>
+  <string name="nearby_permission_detail">To find nearby phones Android asks for these permissions. Codex does not use them to know where you are: they are for finding devices in the room, and on older phones Android still calls that "location".</string>
+  <string name="nearby_permission_refused">Without those permissions nearby stays off. Everything else in Codex works the same.</string>
+  <string name="nearby_service_title">Codex is listening around here</string>
+  <string name="nearby_service_detail">It receives messages from nearby contacts even without internet.</string>
+  <string name="nearby_channel">Nearby</string>
+  <string name="nearby_channel_detail">The notification that stays while Codex listens for nearby phones.</string>
+  <string name="chat_nearby">Nearby</string>
+  <plurals name="story_seen_by">
+    <item quantity="one">Seen by %1$d person</item>
+    <item quantity="other">Seen by %1$d people</item>
+  </plurals>
+
+  <!-- Per-chat lock -->
+  <string name="chat_lock">Lock this conversation</string>
+  <string name="chat_lock_detail">It opens only with your fingerprint or your phone PIN. The list stops showing what it is about.</string>
+  <string name="chat_locked_title">Locked conversation</string>
+  <string name="chat_locked_detail">Your fingerprint, or your phone PIN.</string>
+  <string name="chat_locked_open">Unlock</string>
+  <string name="chat_locked_preview">Locked</string>
+  <string name="chat_locked_prompt">Open the conversation</string>
+  <string name="chat_lock_unavailable">Your phone needs a lock: fingerprint, PIN or pattern. Without one there is nothing to ask whether it is you.</string>
+
+  <!-- Linked devices -->
+  <string name="section_devices">Linked devices</string>
+  <string name="devices_detail">Who else receives this account\'s notifications. A notification contains nothing, but it does say something arrived.</string>
+  <string name="devices_this_one">This phone</string>
+  <string name="devices_unknown">A device</string>
+  <string name="devices_unknown_time">Never seen</string>
+  <string name="devices_last_seen">Seen on %1$s</string>
+  <string name="devices_revoke">Remove this device</string>
+  <string name="devices_revoke_detail">It stops receiving notifications. If that phone is still yours and you open Codex on it, it will register again: to remove it for good, disconnect the account from there.</string>
+
+  <!-- Deleting the account -->
+  <string name="account_delete">Delete the account</string>
+  <string name="account_delete_detail">Removes your profile, your directory entry and your devices from the server</string>
+  <string name="account_delete_confirm">Gone from the server: your public profile, other people\'s ability to find you, the registered devices, the mail and the stories.
+
+Staying on this phone: identity, contacts and messages, all readable. Staying in other people\'s conversations: the envelopes already delivered, which expire on their own after thirty days — those are not ours to delete.
+
+There is no going back.</string>
+  <string name="account_deleting">Deleting…</string>
+  <string name="account_deleted">Account deleted. Codex keeps working on this phone.</string>
+  <string name="account_delete_failed">It did not work. Try again when you have a connection.</string>
+
+  <!-- The two panes, on tablets -->
+  <string name="chats_open_now">Open</string>
+  <string name="chats_pane_empty">No conversation open</string>
+  <string name="chats_pane_empty_detail">Pick one from the list: it opens here, and the list stays where it is.</string>
+
+  <!-- First-use hints -->
+  <string name="hint_got_it">Got it</string>
+  <string name="hint_next">Next</string>
+  <string name="hint_enough">No more tips</string>
+  <string name="hint_seal_title">Tap it</string>
+  <string name="hint_seal_text">The message is sealed in here: tap it and it opens.</string>
+  <string name="hint_send_title">Choose the shape</string>
+  <string name="hint_send_text">Hold Send to decide which seal the message travels in.</string>
+  <string name="hint_nearby_title">Even with no connection</string>
+  <string name="hint_nearby_text">With nearby on, messages hop straight from one phone to the other — no internet, no server.</string>
+
+  <!-- Credits -->
+  <string name="row_credits">Credits</string>
+  <string name="row_credits_detail">The paintings, the rune typeface and the libraries</string>
+  <string name="credits_title">Credits</string>
+  <string name="credits_subtitle">Whose work you are looking at</string>
+  <string name="credits_paintings">Paintings</string>
+  <string name="credits_paintings_detail">The works the Painting technique uses to seal messages. Tap a row to open it on the museum\'s website.</string>
+  <string name="credits_paintings_note">%1$d CC0 (public domain) reproductions from the %2$s, bundled in the app: they show up with no connection, and none of them knows you looked.</string>
+  <string name="credits_fonts">Typefaces</string>
+  <string name="credits_font_runic">Noto Sans Runic</string>
+  <string name="credits_font_runic_detail">Google · SIL Open Font License 1.1</string>
+  <string name="credits_fonts_note">Runes need their own typeface: system fonts do not draw the futhark, and without this file the marks would come out as empty rectangles.</string>
+  <string name="credits_engine">Libraries</string>
+  <string name="credits_engine_note">Fluid Engine %1$s includes these third-party works. The full licences are in the engine repository, under LICENSES/.</string>
+</resources>

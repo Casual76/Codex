@@ -1,0 +1,239 @@
+rules_version = '2';
+
+// Regole di Codex (PIANO.md §6.3).
+//
+// Il principio, che vale per ogni riga di questo file: **il server non deve poter leggere niente**.
+// Quello che passa di qui sono buste cifrate e chiavi pubbliche. Le regole non proteggono il
+// contenuto -- lo protegge la crittografia -- proteggono chi puo' scrivere cosa e dove, che e' un
+// problema diverso e altrettanto vero: senza, chiunque potrebbe infilare un messaggio in una
+// conversazione altrui, o prendersi il Codex ID di un altro.
+//
+// Ogni milestone apre solo le collezioni che usa. Le prove stanno in `firebase/test` e si eseguono
+// con `bash tools/regole.sh`.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    // Il profilo pubblico: chiavi pubbliche, nome, minerale. Chiunque sia autenticato lo legge;
+    // solo il proprietario lo scrive.
+    match /users/{uid} {
+      allow read: if signedIn();
+      allow create, update: if isOwner(uid);
+      // **Andarsene deve essere possibile.** Il profilo lo cancella chi lo ha creato, e nessun
+      // altro: un account che non si puo' eliminare e' un account che tiene in ostaggio chi lo ha
+      // aperto, e le chiavi pubbliche che ci stanno dentro sono le sue.
+      allow delete: if isOwner(uid);
+
+      // Vault, keyring e dispositivi: solo il proprietario, in ogni direzione.
+      match /vault/{doc} {
+        allow read, write: if isOwner(uid);
+      }
+      match /keyring/{doc} {
+        allow read, write: if isOwner(uid);
+      }
+      match /devices/{deviceId} {
+        allow read, write: if isOwner(uid);
+      }
+    }
+
+    // La ricerca manuale per Codex ID: lettura a chi e' autenticato, scrittura solo dal proprietario
+    // dell'uid che il documento indica.
+    match /codexIds/{codexId} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.uid == request.auth.uid;
+      // Non si riscrive -- prendersi il Codex ID di un altro sarebbe il modo piu' semplice di
+      // farsi cercare al posto suo -- ma la si toglie, e solo chi c'e' dentro.
+      allow delete: if signedIn() && resource.data.uid == request.auth.uid;
+      allow update: if false;
+    }
+
+    // --- Conversazioni ------------------------------------------------------------------------
+    //
+    // L'identificatore di una chat diretta **non** si ricava dagli uid: nasce dal segreto in comune
+    // fra le due identita' (vedi `ChatSecret`), quindi il server non puo' calcolarlo e nemmeno
+    // indovinarlo. Le regole percio' non guardano il nome del documento: guardano `memberUids`,
+    // che il creatore scrive e che nessuno puo' piu' cambiare a mano.
+
+    // **`exists()` prima di `get()`, sempre.**
+    //
+    // Su un documento che non c'e', `get()` restituisce null e `.data` non lancia un "falso": manda
+    // in errore la valutazione, e Firestore un errore lo tratta come un rifiuto. Il risultato e' che
+    // la **prima** consegna di una conversazione veniva negata -- la chat non esisteva ancora --
+    // mentre tutte le altre passavano. Un difetto che un test sulle regole gia' scritte non vede,
+    // perche' quei test partono sempre da una chat che c'e'.
+    function chatExists(chatId) {
+      return exists(/databases/$(database)/documents/chats/$(chatId));
+    }
+
+    function isMember(chatId) {
+      return signedIn()
+        && chatExists(chatId)
+        && request.auth.uid in get(/databases/$(database)/documents/chats/$(chatId)).data.memberUids;
+    }
+
+    match /chats/{chatId} {
+      // `resource == null` e' la lettura di una conversazione che non esiste: non c'e' niente da
+      // proteggere e non c'e' niente da restituire. Negarla con un errore invece che con un vuoto
+      // renderebbe impossibile perfino chiedersi se una chat c'e'.
+      allow read: if signedIn()
+        && (resource == null || request.auth.uid in resource.data.memberUids);
+
+      // Chi crea una conversazione ci deve stare dentro, e non puo' crearne una fra altre due
+      // persone. Una chat a due ha due membri esatti; un gruppo ne ha almeno due e dice anche chi
+      // comanda -- e chi lo crea e' fra quelli, altrimenti nascerebbe gia' senza padrone.
+      allow create: if signedIn()
+        && request.auth.uid in request.resource.data.memberUids
+        && (
+          (request.resource.data.type == 'direct'
+            && request.resource.data.memberUids.size() == 2)
+          || (request.resource.data.type == 'group'
+            && request.resource.data.memberUids.size() >= 2
+            && request.auth.uid in request.resource.data.adminUids)
+        );
+
+      // Di una chat **a due** si aggiorna solo quando e' successo qualcosa. I membri non si
+      // toccano: se si potessero cambiare, chiunque dei due potrebbe aggiungere un terzo a una
+      // conversazione a due, e nessuno se ne accorgerebbe guardando lo schermo.
+      //
+      // Di un **gruppo** la lista dei membri cambia -- e' quello che distingue un gruppo -- ma la
+      // cambia solo chi comanda. Attenzione a quale lista si guarda: chi decide sono gli admin di
+      // **adesso** (`resource`), non quelli che il documento in arrivo dichiara, altrimenti
+      // basterebbe scriversi dentro la lista per averne il diritto.
+      allow update: if signedIn()
+        && (
+          (resource.data.type == 'direct'
+            && request.auth.uid in resource.data.memberUids
+            && request.resource.data.memberUids == resource.data.memberUids
+            && request.resource.data.type == resource.data.type
+            && request.resource.data.diff(resource.data).affectedKeys()
+                 .hasOnly(['lastActivityAt']))
+          || (resource.data.type == 'group'
+            && request.resource.data.type == 'group'
+            && (
+              // Chi comanda: puo' cambiare membri e amministratori.
+              (request.auth.uid in resource.data.adminUids
+                && request.auth.uid in request.resource.data.adminUids)
+              // Chiunque sia dentro: solo l'ora dell'ultima attivita', che serve alla lista.
+              || (request.auth.uid in resource.data.memberUids
+                && request.resource.data.memberUids == resource.data.memberUids
+                && request.resource.data.adminUids == resource.data.adminUids
+                && request.resource.data.diff(resource.data).affectedKeys()
+                     .hasOnly(['lastActivityAt']))
+            ))
+        );
+
+      allow delete: if false;
+
+      match /messages/{messageId} {
+        allow read: if isMember(chatId);
+
+        // Si scrive solo a nome proprio, e solo dentro una conversazione di cui si fa parte.
+        // `envelope` e' cifrato: il server non sa cosa contiene, e queste regole non ci provano.
+        allow create: if isMember(chatId)
+          && request.resource.data.senderUid == request.auth.uid
+          && request.resource.data.envelope is bytes
+          && request.resource.data.envelope.size() < 65536;
+
+        // Modificare un messaggio e' del mittente, e solo sul contenuto: chi l'ha scritto e quando
+        // non si riscrivono, altrimenti si potrebbe spostare nel tempo un messaggio altrui.
+        allow update: if isMember(chatId)
+          && resource.data.senderUid == request.auth.uid
+          && request.resource.data.senderUid == resource.data.senderUid
+          && request.resource.data.createdAt == resource.data.createdAt;
+
+        // Cancella il mittente. Cancella **anche il destinatario**, e solo per i "visualizza una
+        // volta": e' l'unico modo di mantenere quella promessa senza aspettare una Function, e per
+        // questo `viewOnce` e' l'unico campo in chiaro di tutto il documento.
+        allow delete: if isMember(chatId)
+          && (resource.data.senderUid == request.auth.uid || resource.data.viewOnce == true);
+      }
+
+      // Consegnato e letto: ognuno scrive solo la propria riga, e la leggono i membri.
+      match /receipts/{uid} {
+        allow read: if isMember(chatId);
+        allow write: if isMember(chatId) && isOwner(uid);
+      }
+
+      // "Sta scrivendo": una riga per persona, con il momento in cui smette di valere.
+      //
+      // Scade da sola invece di essere cancellata: un'app chiusa a meta' frase lascerebbe l'altro a
+      // guardare per sempre un "sta scrivendo" che non finisce mai. Il valore e' un istante, e
+      // passato quello non vuol piu' dire niente.
+      match /typing/{uid} {
+        allow read: if isMember(chatId);
+        allow write: if isMember(chatId) && isOwner(uid);
+      }
+    }
+
+    // --- La posta -----------------------------------------------------------------------------
+    //
+    // `inbox/{uid}/items` porta le cose che vengono **prima** di una conversazione: la chiave di un
+    // gruppo, la richiesta di entrarci. Chi entra in un gruppo non ha ancora la chiave, quindi non
+    // puo' ricevere niente dal gruppo: la chiave deve arrivargli per un'altra strada, ed e' questa.
+    //
+    // **Scrive chiunque abbia un account.** Sembra largo e non lo e': ogni busta e' cifrata con la
+    // chiave di coppia e firmata, quindi al massimo si puo' recapitare a qualcuno del rumore che
+    // lui buttera' via. Restringere la scrittura ai soli contatti richiederebbe di tenere sul
+    // server chi conosce chi -- cioe' il grafo sociale, che e' esattamente la cosa che Codex non
+    // gli lascia sapere. Il tetto di 8 KB e la scadenza a sette giorni tengono il resto.
+    match /inbox/{uid}/items/{itemId} {
+      allow read, delete: if isOwner(uid);
+      allow create: if signedIn()
+        && request.resource.data.fromUid == request.auth.uid
+        && request.resource.data.parcel is bytes
+        && request.resource.data.parcel.size() < 8192;
+      allow update: if false;
+    }
+
+    // --- Le storie ----------------------------------------------------------------------------
+    //
+    // Una storia sta sotto **chi l'ha scritta**, ed e' una cosa sola pubblicata una volta: dentro ci
+    // sono la busta e una chiave avvolta per ciascun contatto. Chi non ha un involucro col suo nome
+    // non deve nemmeno poter sapere che quella storia esiste -- da qui la regola di lettura, che
+    // guarda le chiavi della mappa invece di lasciar leggere a tutti e filtrare sul telefono.
+    match /stories/{authorUid}/items/{storyId} {
+      allow read: if isOwner(authorUid)
+        || (signedIn() && request.auth.uid in resource.data.wrappedKeys);
+
+      allow create: if isOwner(authorUid)
+        && request.resource.data.envelope is bytes
+        && request.resource.data.envelope.size() < 65536
+        // Si nasce senza spettatori: la lista la riempie chi guarda, uno alla volta.
+        && request.resource.data.viewers.size() == 0;
+
+      // **"L'ho vista" e' l'unica cosa che si puo' cambiare da fuori**, e solo su di se'. Senza
+      // questo vincolo chiunque potesse leggere una storia potrebbe anche riscriverne il contenuto,
+      // o cancellare dalla lista chi l'ha guardata.
+      allow update: if signedIn()
+        && request.auth.uid in resource.data.wrappedKeys
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['viewers'])
+        && request.resource.data.viewers.hasAll(resource.data.viewers)
+        && request.resource.data.viewers.hasOnly(resource.data.viewers.concat([request.auth.uid]));
+
+      allow delete: if isOwner(authorUid);
+    }
+
+    // Chi c'e' adesso.
+    //
+    // La leggono tutti quelli che hanno fatto l'accesso e non solo i contatti: per limitarla ai
+    // contatti servirebbe una lista di chi conosce chi, cioe' proprio il grafo sociale che Codex
+    // non vuole mettere sul server. Si preferisce che il server sappia che qualcuno e' online --
+    // e chi non lo vuole lo spegne nelle impostazioni, e allora non lo scrive proprio.
+    match /presence/{uid} {
+      allow read: if signedIn();
+      allow write: if isOwner(uid);
+    }
+
+    // Tutto il resto e' chiuso finche' una milestone non lo apre.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

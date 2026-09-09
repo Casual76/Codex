@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Codex</string>
+
+  <!-- Navigazione -->
+  <string name="tab_chats">Chat</string>
+  <string name="tab_stories">Storie</string>
+  <string name="tab_me">Io</string>
+
+  <!-- Azioni comuni -->
+  <string name="action_continue">Continua</string>
+  <string name="action_confirm">Conferma</string>
+  <string name="action_cancel">Annulla</string>
+  <string name="action_save">Salva</string>
+  <string name="action_paste">Incolla dagli appunti</string>
+  <string name="action_copy">Copia</string>
+  <string name="action_enable">Attiva</string>
+  <string name="action_not_now">Non ora</string>
+  <string name="action_ok">Va bene</string>
+  <string name="action_finish">Inizia</string>
+  <string name="action_unlock">Sblocca</string>
+  <string name="action_reset">Cancella tutto</string>
+  <string name="action_use_secret">Usa il segreto</string>
+
+  <!-- Onboarding -->
+  <string name="onboarding_welcome_tap">Tocca il sigillo</string>
+  <string name="onboarding_welcome_hint">Su Codex i messaggi non si leggono: si aprono.</string>
+  <string name="onboarding_welcome_title">Benvenuto in Codex</string>
+  <string name="onboarding_welcome_body">Ogni messaggio arriva chiuso in una forma da aprire. Quello che hai appena fatto è il gesto che userai ogni giorno.</string>
+  <string name="onboarding_name_title">Come ti chiami?</string>
+  <string name="onboarding_name_body">Dal tuo nome nasce il minerale che i tuoi contatti vedranno accanto a te.</string>
+  <string name="onboarding_name_placeholder">Il tuo nome</string>
+  <string name="onboarding_name_reroll">Un altro minerale</string>
+  <string name="onboarding_secret_pin_title">Scegli un PIN</string>
+  <string name="onboarding_secret_password_title">Scegli una password</string>
+  <string name="onboarding_secret_confirm">Ripetilo</string>
+  <string name="onboarding_secret_body">Protegge la tua identità su questo telefono e ti serve per collegarne un altro. Non è recuperabile: se lo dimentichi, si ricomincia da capo.</string>
+  <string name="onboarding_biometrics_title">Impronta o volto</string>
+  <string name="onboarding_biometrics_body">Per aprire Codex senza digitare il segreto ogni volta. Il segreto resta comunque valido.</string>
+  <string name="onboarding_biometrics_unavailable">Questo telefono non ha un riconoscimento biometrico utilizzabile. Aprirai Codex con il tuo segreto.</string>
+  <string name="onboarding_biometrics_prompt">Serve a legare la tua identità a questo telefono.</string>
+
+  <!-- Serratura -->
+  <string name="lock_type_pin">PIN</string>
+  <string name="lock_type_password">Password</string>
+  <string name="lock_enter_pin">Inserisci il PIN</string>
+  <string name="lock_enter_password">Inserisci la password</string>
+  <string name="lock_password_placeholder">Password</string>
+  <string name="lock_password_hint">Almeno %1$d caratteri</string>
+  <string name="lock_secret_mismatch">I due inserimenti non coincidono. Riprova.</string>
+  <string name="lock_wrong">Segreto errato</string>
+  <string name="lock_wait">Troppi tentativi. Riprova fra %1$s.</string>
+  <string name="lock_biometric_title">Sblocca Codex</string>
+  <string name="lock_biometric_subtitle">Usa l\'impronta o il volto per aprire l\'app.</string>
+  <string name="lock_forgot">Segreto dimenticato?</string>
+  <string name="lock_reset_title">Ricominciare da capo</string>
+  <string name="lock_reset_message">Il segreto non è recuperabile: è ciò che rende la tua identità illeggibile a chiunque altro. L\'unica strada è cancellare identità, contatti e messaggi e crearne una nuova.</string>
+
+  <!-- Profilo -->
+  <string name="profile_name">Nome</string>
+  <string name="profile_name_detail">È quello che vedono i tuoi contatti.</string>
+  <string name="profile_no_name">Senza nome</string>
+  <string name="profile_codex_id">Codex ID</string>
+  <string name="profile_reroll">Cambia minerale</string>
+  <string name="profile_reroll_detail">Ne genera un altro. La tua identità non cambia.</string>
+
+  <!-- Sicurezza -->
+  <string name="section_security">Sicurezza</string>
+  <string name="security_biometrics">Impronta o volto</string>
+  <string name="security_biometrics_detail">Apri Codex senza digitare il segreto.</string>
+  <string name="security_biometrics_not_enrolled">Registra un\'impronta nelle impostazioni del telefono per usarla qui.</string>
+  <string name="security_biometrics_unavailable">Non disponibile su questo telefono.</string>
+  <string name="security_change_title">Cambia segreto</string>
+  <string name="security_change_current">Il segreto attuale</string>
+  <string name="security_change_new">Il nuovo segreto</string>
+  <string name="security_change_confirm">Ripeti il nuovo segreto</string>
+  <string name="security_change_error">Non ha funzionato. Ricontrolla e riprova.</string>
+  <string name="security_lock_now">Blocca adesso</string>
+  <string name="security_lock_now_detail">Chiude l\'identità senza chiudere l\'app.</string>
+  <string name="security_timeout">Blocco automatico</string>
+  <string name="security_timeout_immediate">Subito</string>
+  <string name="security_timeout_1m">1 min</string>
+  <string name="security_timeout_5m">5 min</string>
+  <string name="security_timeout_30m">30 min</string>
+
+  <!-- Chat -->
+  <string name="chats_title">Chat</string>
+  <string name="chats_subtitle">I tuoi sigilli, aperti e da aprire.</string>
+  <string name="chats_empty_title">Nessuna chat</string>
+  <string name="chats_empty_detail">Aggiungi un contatto per mandare il primo sigillo.</string>
+  <string name="action_add_contact">Aggiungi</string>
+  <string name="action_my_seal">Il mio sigillo</string>
+
+  <!-- Storie -->
+  <string name="stories_title">Storie</string>
+  <string name="stories_subtitle">Il sigillo del giorno dei tuoi contatti.</string>
+  <string name="stories_empty_title">Nessuna storia</string>
+  <string name="stories_empty_detail">Le storie durano un giorno e si aprono con un tocco.</string>
+
+  <!-- Io -->
+  <string name="me_title">Io</string>
+  <string name="me_subtitle">Profilo, sicurezza, aspetto.</string>
+  <string name="section_appearance">Aspetto</string>
+  <string name="theme_light">Chiaro</string>
+  <string name="theme_dark">Scuro</string>
+  <string name="theme_system">Sistema</string>
+  <string name="row_dynamic_color">Colore dinamico</string>
+  <string name="row_dynamic_color_detail">Prende i colori dallo sfondo del telefono.</string>
+  <string name="row_haptics">Aptica</string>
+  <string name="row_haptics_detail">Vibrazioni leggere su tocchi e sigilli.</string>
+  <string name="row_amoled">Nero assoluto</string>
+  <string name="row_amoled_detail">Superfici nere pure nel tema scuro.</string>
+  <string name="section_about">Informazioni</string>
+  <string name="row_version">Versione</string>
+  <string name="row_engine">Fluid Engine</string>
+  <string name="row_updates">Aggiornamenti</string>
+  <string name="update_tap_to_check">Tocca per controllare</string>
+  <string name="update_checking">Controllo…</string>
+  <string name="update_latest">Sei all\'ultima versione</string>
+  <string name="update_available">Disponibile %1$s: tocca per installare</string>
+  <string name="update_failed">Controllo non riuscito: sei offline?</string>
+  <string name="update_downloading">Scarico… %1$d%%</string>
+  <string name="update_installed">Installata: riapri l\'app</string>
+  <string name="update_error">Errore: %1$s</string>
+  <string name="update_debug_unavailable">Non disponibile nelle build di lavoro</string>
+  <string name="row_source">Sorgente</string>
+  <string name="row_source_detail">github.com/Casual76/Codex</string>
+  <string name="row_origins">Le origini</string>
+  <string name="row_origins_detail">Il cifrario del prof e la storia di Codex.</string>
+  <string name="row_playground">Playground</string>
+  <string name="row_playground_detail">I sigilli, senza una chat intorno. Solo nelle build di lavoro.</string>
+
+  <!-- Zona pericolo -->
+  <string name="section_danger">Zona pericolo</string>
+  <string name="danger_reset">Cancella tutto</string>
+  <string name="danger_reset_detail">Identità, contatti e messaggi di questo telefono.</string>
+  <string name="danger_reset_message">Perderai la tua identità, i contatti e le chiavi. Se non hai collegato un altro dispositivo, non c\'è modo di tornare indietro.</string>
+  <string name="danger_reset_note">Codex non tiene una copia delle tue chiavi da nessuna parte: è per questo che nessuno può leggere i tuoi messaggi, e anche il motivo per cui nessuno può restituirteli.</string>
+
+  <!-- Chat -->
+  <string name="chat_self_title">Note a te stesso</string>
+  <string name="chat_subtitle">Tocca un sigillo per aprirlo.</string>
+  <string name="chat_empty_title">Nessun messaggio</string>
+  <string name="chat_empty_detail">Scrivi qualcosa: arriverà chiuso, e lo aprirai tu.</string>
+  <string name="chat_placeholder">Scrivi un messaggio</string>
+  <string name="chat_send">Invia</string>
+  <string name="chat_reveal_all">Rivela tutto</string>
+  <string name="message_burned">Sigillato per sempre</string>
+  <string name="preview_rune">Delle rune da leggere</string>
+  <string name="preview_rock">Una roccia da aprire</string>
+  <string name="preview_painting">Un quadro da guardare</string>
+  <string name="preview_empty">Ancora niente</string>
+  <string name="technique_title">Come lo chiudo</string>
+  <string name="technique_current">In uso</string>
+  <string name="technique_surprise">A sorpresa</string>
+  <string name="technique_surprise_detail">La forma la decide il messaggio. Nessuno dei due sa quale sarà.</string>
+  <string name="technique_rune">Rune</string>
+  <string name="technique_rune_detail">Il testo arriva in un alfabeto antico e si scioglie lettera per lettera.</string>
+  <string name="technique_rock">Roccia</string>
+  <string name="technique_rock_detail">Una gemma da spaccare con un tocco.</string>
+  <string name="technique_painting">Quadro</string>
+  <string name="technique_painting_detail">Un dipinto che si sgretola e lascia emergere il messaggio.</string>
+
+  <!-- Le origini -->
+  <string name="origins_title">Le origini</string>
+  <string name="origins_subtitle">Il cifrario del prof, e da dove viene Codex.</string>
+  <string name="origins_story_1">Codex nasce da una verifica di educazione civica. Il professore aveva portato la foto di una tavola cifrata — un alfabeto, delle sillabe, dei nomi, dei segni che non volevano dire niente — e la verifica su quella tavola è andata male.</string>
+  <string name="origins_story_2">Lo stesso pomeriggio, in due ore, è nato un programma che cifrava una frase e ne faceva un\'immagine: serviva a rispondere a un amico in un modo che nessun altro sapesse leggere. Quel programma è diventato quest\'app.</string>
+  <string name="origins_story_3">Della tavola, però, la prima versione aveva preso solo la forma: ne aveva ricavato una corrispondenza numerica e buttato via il modo in cui il cifrario funzionava davvero. Questa sezione esiste per rimettere le cose a posto.</string>
+  <string name="origins_cipher_title">Il cifrario</string>
+  <string name="origins_cipher_detail">Non è un alfabeto sostituito. È un nomenclatore, e sono cinque cose insieme. Sono tutte nella foto qui sotto.</string>
+  <string name="origins_part_alphabet">L\'alfabeto</string>
+  <string name="origins_part_alphabet_detail">Ventidue lettere: a b c d e f g h i l m n o p q r s t v x y z. Manca la u, perché la v faceva per due. Le lettere più frequenti hanno più di un segno, uno sotto l\'altro: sono quelle che un attacco conta per prime.</string>
+  <string name="origins_part_syllables">Le sillabe</string>
+  <string name="origins_part_syllables_detail">Quindici consonanti per cinque vocali, da ba be bi bo bu fino a za ze zi zo zu, con la riga della q scritta qua que qui quo quu. Settantacinque segni che valgono due lettere l\'uno.</string>
+  <string name="origins_part_doubles">Le doppie</string>
+  <string name="origins_part_doubles_detail">bb cc dd ff gg ll mm nn pp rr ss tt uu. Tredici, e in italiano tornano continuamente.</string>
+  <string name="origins_part_names">Il nomenclatore</string>
+  <string name="origins_part_names_detail">Papa, Imperatore, Re di Francia, Pisa, Firenze, Esercito, Domani, Salvestro, Somme, Alamannia. Le parole che tornavano in ogni dispaccio, ognuna con il suo segno. È la parte che dà il nome a tutto il sistema.</string>
+  <string name="origins_part_nulls">Le nulle</string>
+  <string name="origins_part_nulls_detail">Nove segni che non vogliono dire niente, sparsi nel testo perché chi lo intercetta conti male.</string>
+  <string name="origins_try_title">Provalo</string>
+  <string name="origins_try_detail">I segni qui sotto non sono i ghirigori del manoscritto. La struttura invece è la sua, contata sulla foto: stesse lettere, stesse sillabe, stesse doppie, stesse parole.</string>
+  <string name="origins_try_label">Scrivi una frase</string>
+  <string name="origins_try_sample">il papa scrive domani a firenze</string>
+  <string name="origins_try_show">Mostra cosa vuol dire</string>
+  <string name="origins_try_hide">Nascondi di nuovo</string>
+  <string name="origins_try_show_detail">Sotto ogni segno compare quello che vale.</string>
+  <string name="origins_try_stats_zero">%1$d lettere in chiaro diventano %2$d segni, senza nulle.</string>
+  <plurals name="origins_try_stats">
+    <item quantity="one">%1$d lettere in chiaro diventano %2$d segni, più una nulla.</item>
+    <item quantity="other">%1$d lettere in chiaro diventano %2$d segni, più %3$d nulle.</item>
+  </plurals>
+  <string name="origins_table_title">La tavola</string>
+  <string name="origins_table_detail">%1$d voci, tutte diverse.</string>
+  <string name="origins_table_note">I segni sono composti come li componevano le cancellerie: una forma, e sopra o sotto un punto o una barra che la fa valere un\'altra cosa. Bastano quaranta forme per riempire una tavola di centoventi voci.</string>
+  <string name="origins_research_title">La ricerca</string>
+  <string name="origins_research_1">Della tavola non sappiamo ancora niente di certo: né da quale archivio venga, né di quale cancelleria fosse.</string>
+  <string name="origins_research_2">Quello che si legge nella foto dice però qualcosa. Fra le parole del nomenclatore ci sono Pisa e Firenze come voci distinte, accanto all\'Imperatore, al Re di Francia e all\'Esercito, e più avanti Alamannia: una cancelleria toscana ai tempi delle guerre d\'Italia, fra il 1494 e il 1530, con Pisa ribelle. Salvestro è un nome di battesimo fiorentino. È una lettura, non un\'attribuzione.</string>
+  <string name="origins_research_3">La pista più corta resta chiedere al professore da dove ha preso l\'immagine. Le altre sono queste.</string>
+  <string name="origins_research_note">Nessuna di queste fonti ha ancora identificato il documento. Quando succederà, questa pagina lo dirà con il nome dell\'archivio e la segnatura.</string>
+
+  <!-- Il quadro che esce e rientra -->
+  <string name="painting_open_label">Apri con Codex</string>
+  <string name="painting_open">Apri un quadro</string>
+  <string name="painting_share">Condividi come immagine</string>
+  <string name="painting_share_detail">Un PNG con dentro il messaggio. Mandalo come file: se viene ricompresso come foto, il messaggio si perde.</string>
+  <string name="painting_share_subject">Un quadro da Codex</string>
+  <string name="painting_import_pane">Un quadro da aprire</string>
+  <string name="painting_in_title">Il messaggio è arrivato</string>
+  <string name="painting_in_detail">È nella chat, ancora chiuso. Aprirlo tocca a te.</string>
+  <string name="painting_known_title">Ce l\'hai già</string>
+  <string name="painting_known_detail">Questo messaggio è già nella tua conversazione.</string>
+  <string name="painting_foreign_title">Non è una tua chat</string>
+  <string name="painting_foreign_detail">Il quadro appartiene a una conversazione che questo telefono non ha. Serve la chat, non il file.</string>
+  <string name="painting_empty_title">Dentro non c\'è niente</string>
+  <string name="painting_empty_detail">O non è un quadro di Codex, o è stato inoltrato come foto: la ricompressione cancella il messaggio. Chiedi di rimandarlo come file.</string>
+  <string name="painting_locked_title">Non si apre</string>
+  <string name="painting_locked_detail">Il messaggio c\'è, ma non con le tue chiavi. Potrebbe essere stato ritoccato per strada.</string>
+  <string name="painting_open_chat">Apri la chat</string>
+  <string name="action_close">Chiudi</string>
+
+  <!-- Cronologia e menu di un messaggio -->
+  <string name="chat_today">Oggi</string>
+  <string name="chat_yesterday">Ieri</string>
+  <string name="message_actions">Questo messaggio</string>
+  <string name="message_copy">Copia il testo</string>
+  <string name="message_copy_detail">Va negli appunti del telefono, in chiaro.</string>
+  <string name="message_delete">Elimina</string>
+  <string name="message_delete_detail">Sparisce da questo telefono. Chi l\'ha ricevuto ce l\'ha ancora.</string>
+
+  <!-- Storie -->
+  <string name="story_new">Il tuo sigillo del giorno</string>
+  <string name="story_new_detail">Scrivi qualcosa: resta chiuso, e dura ventiquattr\'ore.</string>
+  <string name="story_placeholder">Cosa nascondi oggi</string>
+  <string name="story_post">Pubblica</string>
+  <string name="story_delete">Elimina</string>
+  <string name="story_tap_hint">Tocca il sigillo per aprirlo. Chiudendo si richiude.</string>
+  <string name="story_minutes_left">Meno di un\'ora</string>
+  <string name="story_alone_title">Per ora ci sei solo tu</string>
+  <string name="story_alone_detail">Le storie dei tuoi contatti compariranno qui accanto alle tue, quando ci saranno dei contatti.</string>
+  <plurals name="story_hours_left">
+    <item quantity="one">Ancora %1$d ora</item>
+    <item quantity="other">Ancora %1$d ore</item>
+  </plurals>
+
+  <!-- Scadenza, visualizza una volta, impostazioni di una chat -->
+  <string name="view_once">Visualizza una volta</string>
+  <string name="view_once_detail">Si apre, si legge, e uscendo dalla chat non c\'è più. Vale solo per il prossimo messaggio.</string>
+  <string name="chat_info_subtitle">Come si comporta questa conversazione.</string>
+  <string name="chat_info_note">La scadenza vale su questo telefono. Chi ha ricevuto il messaggio decide per il suo.</string>
+  <string name="ttl_title">Messaggi a scadenza</string>
+  <string name="ttl_detail">Quanto resta un messaggio dopo che è stato aperto.</string>
+  <string name="ttl_never">Per sempre</string>
+  <string name="ttl_never_detail">I messaggi restano finché non li cancelli.</string>
+  <string name="ttl_hour">Un\'ora</string>
+  <string name="ttl_day">Un giorno</string>
+  <string name="ttl_week">Una settimana</string>
+  <string name="ttl_from_opening">Il conto parte da quando lo apri, non da quando arriva.</string>
+  <string name="chat_clear">Svuota la conversazione</string>
+  <string name="chat_clear_detail">Tutti i messaggi di questa chat, da questo telefono.</string>
+  <string name="chat_clear_message">I messaggi spariscono da qui e non tornano. La chat resta, vuota.</string>
+
+  <!-- Cosa legge chi non vede lo schermo -->
+  <string name="seal_closed_rune">Messaggio chiuso in delle rune</string>
+  <string name="seal_closed_rock">Messaggio chiuso in una roccia</string>
+  <string name="seal_closed_painting">Messaggio chiuso in un quadro</string>
+  <string name="seal_open_action">Apri il sigillo</string>
+
+  <string name="origins_image_caption">La foto della tavola, quella che il professore ha portato a lezione. È una fotografia di una fotocopia e non è stata ritoccata: tocca per ingrandirla.</string>
+  <string name="origins_image_zoom">Allarga con due dita, doppio tocco per saltare all\'ingrandimento.</string>
+
+  <!-- Dove e' arrivato un messaggio -->
+  <string name="status_pending">In attesa di partire</string>
+  <string name="status_sent">Inviato</string>
+  <string name="status_delivered">Consegnato</string>
+  <string name="status_read">Letto</string>
+  <string name="status_failed">Non inviato</string>
+
+  <string name="chat_typing">Sta scrivendo…</string>
+  <string name="chat_online">Online</string>
+  <string name="section_visibility">Cosa lasci vedere</string>
+  <string name="visibility_online">Fai sapere quando sei online</string>
+  <string name="visibility_online_detail">Se lo spegni non lo mandi e non lo vedi.</string>
+  <string name="visibility_typing">Fai sapere quando stai scrivendo</string>
+  <string name="visibility_typing_detail">Stessa regola: vale in tutte e due le direzioni.</string>
+  <string name="visibility_footnote">Non riguardano il contenuto dei messaggi, che resta illeggibile a chiunque in ogni caso. Riguardano solo cosa le persone con cui parli possono sapere di te.</string>
+
+  <string name="chat_attach">Manda una foto</string>
+  <string name="media_loading">Sto scaricando…</string>
+  <string name="media_broken">Questa immagine non si apre</string>
+  <string name="media_photo">La foto che hai ricevuto</string>
+  <string name="media_open">Guarda la foto intera</string>
+  <string name="media_close">Chiudi</string>
+  <string name="media_too_big">Questa foto è troppo grande: il limite è 30 MB.</string>
+
+  <!-- Note vocali -->
+  <string name="voice_record">Registra una nota vocale</string>
+  <string name="voice_recording">Sto registrando…</string>
+  <string name="voice_send">Manda la nota vocale</string>
+  <string name="voice_cancel">Annulla</string>
+  <string name="voice_play">Ascolta</string>
+  <string name="voice_pause">Metti in pausa</string>
+  <string name="voice_message">Nota vocale</string>
+  <string name="voice_permission_title">Serve il microfono</string>
+  <string name="voice_permission_detail">Per registrare una nota vocale Codex ha bisogno del microfono. L\'audio non esce mai in chiaro da questo telefono: viene cifrato prima di partire.</string>
+  <string name="voice_too_short">Troppo corta: tieni premuto un attimo di più.</string>
+
+  <!-- Notifiche -->
+  <string name="notification_channel_messages">Sigilli in arrivo</string>
+  <string name="notification_channel_messages_detail">Ti avvisa che è arrivato un messaggio. Non ne mostra mai il contenuto.</string>
+  <string name="notification_seal_arrived">Ti ha mandato un sigillo</string>
+  <string name="notification_from_unknown">Qualcuno</string>
+
+  <!-- Account -->
+  <string name="section_account">Account</string>
+  <string name="account_sign_in">Collega un account Google</string>
+  <string name="account_sign_in_detail">Serve al server per sapere a chi consegnare, e perché il tuo Codex ID si possa cercare.</string>
+  <string name="account_working">Un momento…</string>
+  <string name="account_connected">Account collegato</string>
+  <string name="account_sign_out">Scollega</string>
+  <string name="account_sign_out_detail">Resta tutto dov\'è: identità, conversazioni e messaggi sono su questo telefono.</string>
+  <string name="account_cancelled">Hai chiuso la finestra. Non è cambiato niente.</string>
+  <string name="account_no_account">Nessun account Google su questo dispositivo.</string>
+  <string name="account_failed">Non è andata. Riprova, o continua senza: Codex funziona lo stesso.</string>
+  <string name="account_published">Collegato. Il tuo Codex ID adesso si può cercare.</string>
+  <string name="account_not_published">Collegato, ma il tuo Codex ID non è ancora cercabile. Riprova più tardi.</string>
+  <string name="account_footnote">L\'account non apre la tua identità: quella sta nel vault di questo telefono e si apre con il tuo segreto. Google sa che usi Codex, non cosa ti scrivi.</string>
+
+  <!-- Contatti e pairing -->
+  <string name="contacts_title">Contatti</string>
+  <string name="contacts_subtitle">Chi puoi aprire, e chi può aprire te</string>
+  <string name="contacts_my_seal">Il mio sigillo</string>
+  <string name="contacts_my_seal_hint">Mostra il tuo codice</string>
+  <string name="contacts_add">Aggiungi una persona</string>
+  <string name="contacts_add_detail">Inquadra il suo sigillo, o incolla il suo codice</string>
+  <string name="contacts_empty_title">Ancora nessuno</string>
+  <string name="contacts_empty_detail">Aggiungere qualcuno è un gesto a due: uno mostra il proprio sigillo, l\'altro lo inquadra. Poi si scambiano i ruoli.</string>
+  <string name="contacts_people">Persone</string>
+  <string name="contacts_state_open">Aperta</string>
+  <string name="contacts_state_sealed">Da aprire</string>
+  <string name="contacts_action_ritual">Rifai il rito</string>
+  <string name="contacts_action_delete">Elimina</string>
+  <string name="contacts_footnote">Una persona in elenco non è ancora una conversazione: quella nasce dalla parola d\'ordine, e senza resta tutto chiuso.</string>
+  <string name="contacts_delete_title">Eliminare %1$s?</string>
+  <string name="contacts_delete_message">Vanno via la persona, la vostra conversazione e la chiave che la apriva. Non tornano.</string>
+
+  <string name="my_seal_title">Il mio sigillo</string>
+  <string name="my_seal_subtitle">Da far inquadrare</string>
+  <string name="my_seal_qr_description">Il codice della tua scheda, da far inquadrare all\'altra persona.</string>
+  <string name="my_seal_copy">Copia il codice</string>
+  <string name="my_seal_footnote">Qui dentro non c\'è nessun segreto: il tuo nome, il tuo minerale e le tue chiavi pubbliche, firmate. Puoi mandarlo per messaggio senza pensarci.</string>
+
+  <string name="add_title">Aggiungi una persona</string>
+  <string name="add_subtitle">Due modi, secondo dove siete</string>
+  <string name="add_mode_scan">Inquadra</string>
+  <string name="add_mode_paste">Codice</string>
+  <string name="add_paste_label">Il suo codice, o il suo Codex ID</string>
+  <string name="add_paste_placeholder">CDX-7K3P-2M9Q</string>
+  <string name="add_paste_support">Il codice lungo funziona sempre. Il Codex ID va cercato, quindi serve la rete.</string>
+  <string name="add_paste_from_clipboard">Prendi dagli appunti</string>
+  <string name="add_paste_confirm">Aggiungi</string>
+  <string name="add_camera_why">Per inquadrare un sigillo serve la fotocamera. Codex la usa solo qui, guarda i fotogrammi sul telefono e non ne salva nessuno.</string>
+  <string name="add_camera_allow">Usa la fotocamera</string>
+  <string name="add_error_myself">Questo è il tuo sigillo. Falla inquadrare all\'altra persona, invece.</string>
+  <string name="add_error_not_a_card">Questo codice non è una scheda Codex, o si è rovinato per strada.</string>
+  <string name="add_error_not_found">Nessuno con questo Codex ID. Controlla le lettere, o fatti mandare il codice lungo.</string>
+  <string name="add_error_unreachable">Non riesco a cercare adesso. Il codice lungo però funziona anche senza rete.</string>
+  <string name="add_error_needs_account">Cercare per Codex ID richiede l\'accesso. Inquadrare e incollare no.</string>
+  <string name="add_footnote">Poi tocca all\'altra persona inquadrare il tuo: le due schede servono tutte e due.</string>
+
+  <string name="ritual_title">La parola d\'ordine</string>
+  <string name="ritual_subtitle">Il rito</string>
+  <string name="ritual_explain">Scegliete a voce una parola, guardandovi o al telefono. Non scrivetela qui dentro e non mandatevela in chat: è l\'unica cosa che non deve passare da uno schermo.</string>
+  <string name="ritual_word_label">La parola</string>
+  <string name="ritual_word_placeholder">quella che avete detto</string>
+  <string name="ritual_word_support">Accenti, maiuscole e punteggiatura non contano.</string>
+  <string name="ritual_perform">Apri la conversazione</string>
+  <string name="ritual_failed">Non è bastata. Riprova con la parola intera.</string>
+  <string name="ritual_same_gem">Vedete la stessa gemma?</string>
+  <string name="ritual_yes">Sì, entriamo</string>
+  <string name="ritual_no">No, rifacciamo</string>
+  <string name="ritual_footnote_word">Dalla parola nasce la chiave, e dalla chiave la gemma. Se avete capito parole diverse, le gemme saranno diverse.</string>
+  <string name="ritual_footnote_gem">Se le due gemme sono uguali, la conversazione è vostra e di nessun altro. Se sono diverse, qualcosa non ha funzionato: rifate il rito.</string>
+
+  <string name="message_sealed">Chiuso: manca la parola d\'ordine</string>
+  <string name="message_unreadable">Questo non si apre</string>
+
+  <string name="message_delete_confirm">Sparisce da questo telefono e non torna. Se l\'hai mandato tu, chi l\'ha ricevuto ce l\'ha ancora.</string>
+
+  <string name="story_delete_confirm">Sparisce adesso, senza aspettare le ventiquattr\'ore. Non torna.</string>
+  <string name="chat_info_action">Impostazioni della chat</string>
+
+  <!-- Gruppi -->
+  <string name="group_new">Nuovo gruppo</string>
+  <string name="group_new_detail">Un nome, e le persone che ci stanno dentro</string>
+  <string name="group_name">Come si chiama</string>
+  <string name="group_name_hint">Il nome del gruppo</string>
+  <string name="group_members">Chi c\'è</string>
+  <string name="group_members_detail">Scegli fra le persone che hai già aggiunto</string>
+  <string name="group_create">Crea il gruppo</string>
+  <string name="group_creating">Sto consegnando la chiave…</string>
+  <string name="group_no_contacts">Prima aggiungi qualcuno: un gruppo si fa con le persone che hai già.</string>
+  <string name="group_needs_two">Scegli almeno una persona.</string>
+  <string name="group_needs_name">Dagli un nome.</string>
+  <string name="group_admin">Amministratore</string>
+  <string name="group_gone">Non c\'è più</string>
+  <string name="group_waiting_key">In attesa della chiave</string>
+  <string name="group_waiting_key_detail">Chi ti ha invitato deve aprire Codex una volta: la chiave la consegna il suo telefono, non il server.</string>
+  <string name="group_people">%1$d persone</string>
+  <string name="group_invite">Invita qualcuno</string>
+  <string name="group_invite_detail">Copia un invito da mandare come vuoi</string>
+  <string name="group_invite_copied">Invito copiato. Vale finché tu ci sei dentro.</string>
+  <string name="group_leave">Esci dal gruppo</string>
+  <string name="group_leave_detail">I messaggi restano, chiusi. La chiave no.</string>
+  <string name="group_leave_confirm">Uscendo perdi la chiave: i messaggi di questo gruppo non si apriranno più, nemmeno quelli vecchi. Chi resta ne riceverà una nuova.</string>
+  <string name="group_remove">Togli dal gruppo</string>
+  <string name="group_remove_confirm">%1$s non leggerà più i messaggi nuovi. Quelli vecchi restano suoi: erano suoi.</string>
+  <string name="group_resend_key">Rimanda la chiave</string>
+  <string name="group_join">Unisciti a un gruppo</string>
+  <string name="group_join_detail">Incolla l\'invito che ti hanno mandato</string>
+  <string name="group_join_hint">codex://gruppo/…</string>
+  <string name="group_join_action">Chiedi di entrare</string>
+  <string name="group_join_sent">Ho chiesto. Il gruppo comparirà quando chi ti ha invitato consegna la chiave.</string>
+  <string name="group_join_bad">Questo invito non si legge.</string>
+  <string name="group_join_unknown">Chi ti ha invitato non è ancora fra i tuoi contatti: aggiungi prima il suo sigillo.</string>
+  <string name="group_join_needs_account">Per entrare in un gruppo serve un account: la chiave deve poterti arrivare.</string>
+
+  <!-- Vicinanze -->
+  <string name="section_nearby">Vicinanze</string>
+  <string name="nearby_detail">Quando un tuo contatto è nella stessa stanza, i messaggi passano da un telefono all\'altro. Senza internet, senza server, senza account.</string>
+  <string name="nearby_off">Spente</string>
+  <string name="nearby_off_detail">Nessuna antenna accesa.</string>
+  <string name="nearby_foreground">Mentre Codex è aperta</string>
+  <string name="nearby_foreground_detail">Si accendono con l\'app e si spengono quando la chiudi.</string>
+  <string name="nearby_always">Sempre</string>
+  <string name="nearby_always_detail">Anche a schermo spento. Il sistema mostra una notifica finché sono accese.</string>
+  <string name="nearby_current">In uso</string>
+  <string name="nearby_permission_title">Servono Bluetooth e Wi-Fi</string>
+  <string name="nearby_permission_detail">Per trovare i telefoni vicini Android chiede questi permessi. Codex non li usa per sapere dove sei: servono a cercare dispositivi nella stanza, e sui telefoni più vecchi Android li chiama ancora "posizione".</string>
+  <string name="nearby_permission_refused">Senza quei permessi le vicinanze restano spente. Tutto il resto di Codex funziona uguale.</string>
+  <string name="nearby_service_title">Codex è in ascolto qui intorno</string>
+  <string name="nearby_service_detail">Riceve messaggi dai contatti vicini anche senza internet.</string>
+  <string name="nearby_channel">Vicinanze</string>
+  <string name="nearby_channel_detail">La notifica che resta mentre Codex ascolta i telefoni vicini.</string>
+  <string name="chat_nearby">Vicino</string>
+  <plurals name="story_seen_by">
+    <item quantity="one">Vista da %1$d persona</item>
+    <item quantity="other">Vista da %1$d persone</item>
+  </plurals>
+
+  <!-- Blocco per conversazione -->
+  <string name="chat_lock">Blocca questa conversazione</string>
+  <string name="chat_lock_detail">Si apre solo con la tua impronta o il PIN del telefono. Nell\'elenco non si vede più di cosa parla.</string>
+  <string name="chat_locked_title">Conversazione bloccata</string>
+  <string name="chat_locked_detail">Serve la tua impronta, o il PIN del telefono.</string>
+  <string name="chat_locked_open">Sblocca</string>
+  <string name="chat_locked_preview">Bloccata</string>
+  <string name="chat_locked_prompt">Apri la conversazione</string>
+  <string name="chat_lock_unavailable">Serve una serratura sul telefono: impronta, PIN o sequenza. Senza, non c\'è nulla a cui chiedere se sei tu.</string>
+
+  <!-- Dispositivi collegati -->
+  <string name="section_devices">Dispositivi collegati</string>
+  <string name="devices_detail">Chi altro riceve le notifiche di questo account. La notifica non contiene niente, ma dice che è arrivato qualcosa.</string>
+  <string name="devices_this_one">Questo telefono</string>
+  <string name="devices_unknown">Un dispositivo</string>
+  <string name="devices_unknown_time">Mai visto</string>
+  <string name="devices_last_seen">Visto il %1$s</string>
+  <string name="devices_revoke">Togli questo dispositivo</string>
+  <string name="devices_revoke_detail">Smette di ricevere le notifiche. Se quel telefono è ancora tuo e riapri Codex, si registrerà di nuovo: per toglierlo davvero, disconnetti l\'account da lì.</string>
+
+  <!-- Eliminazione dell'account -->
+  <string name="account_delete">Elimina l\'account</string>
+  <string name="account_delete_detail">Toglie dal server il tuo profilo, la voce in rubrica e i dispositivi</string>
+  <string name="account_delete_confirm">Spariscono dal server: il tuo profilo pubblico, la possibilità per gli altri di cercarti, i dispositivi registrati, la posta e le storie.
+
+Restano su questo telefono: identità, contatti e messaggi, tutti leggibili. Restano nelle conversazioni degli altri le buste già consegnate, che scadono da sole dopo trenta giorni: non sono nostre da cancellare.
+
+Non si torna indietro.</string>
+  <string name="account_deleting">Sto eliminando…</string>
+  <string name="account_deleted">Account eliminato. Codex continua a funzionare su questo telefono.</string>
+  <string name="account_delete_failed">Non ha funzionato. Riprova quando c\'è rete.</string>
+
+  <!-- I due pannelli, sui tablet -->
+  <string name="chats_open_now">Aperta</string>
+  <string name="chats_pane_empty">Nessuna conversazione aperta</string>
+  <string name="chats_pane_empty_detail">Scegline una nell\'elenco: si apre qui, e la lista resta dov\'è.</string>
+
+  <!-- Suggerimenti al primo uso -->
+  <string name="hint_got_it">Ho capito</string>
+  <string name="hint_next">Avanti</string>
+  <string name="hint_enough">Basta suggerimenti</string>
+  <string name="hint_seal_title">Toccalo</string>
+  <string name="hint_seal_text">Il messaggio è chiuso qui dentro: toccalo e si apre.</string>
+  <string name="hint_send_title">Scegli la forma</string>
+  <string name="hint_send_text">Tieni premuto l\'invio per decidere in che sigillo parte il messaggio.</string>
+  <string name="hint_nearby_title">Anche senza rete</string>
+  <string name="hint_nearby_text">Con le vicinanze accese i messaggi passano da un telefono all\'altro, senza internet e senza server.</string>
+
+  <!-- Crediti -->
+  <string name="row_credits">Crediti</string>
+  <string name="row_credits_detail">I dipinti, il font delle rune e le librerie</string>
+  <string name="credits_title">Crediti</string>
+  <string name="credits_subtitle">Di chi è quello che vedi</string>
+  <string name="credits_paintings">Dipinti</string>
+  <string name="credits_paintings_detail">Le opere che la tecnica Quadro usa per sigillare i messaggi. Tocca una riga per aprirla sul sito del museo.</string>
+  <string name="credits_paintings_note">%1$d riproduzioni in CC0 (pubblico dominio) dell\'%2$s, incluse nell\'app: si vedono senza rete, e nessuna di loro sa che le hai guardate.</string>
+  <string name="credits_fonts">Caratteri</string>
+  <string name="credits_font_runic">Noto Sans Runic</string>
+  <string name="credits_font_runic_detail">Google · SIL Open Font License 1.1</string>
+  <string name="credits_fonts_note">Le rune hanno bisogno del loro carattere: quelli di sistema il futhark non lo disegnano, e senza questo file al posto dei segni resterebbero dei rettangoli vuoti.</string>
+  <string name="credits_engine">Librerie</string>
+  <string name="credits_engine_note">Il Fluid Engine %1$s include queste opere di terze parti. Le licenze complete stanno nel repository dell\'engine, in LICENSES/.</string>
+</resources>

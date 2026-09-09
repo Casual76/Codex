@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Livello monocromatico per le icone a tema (Android 13+): il sistema lo tinge, quindi qui conta
+     solo la sagoma. Esagono pieno con la runa "scavata". -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+  android:width="108dp"
+  android:height="108dp"
+  android:viewportWidth="108"
+  android:viewportHeight="108">
+  <path
+    android:fillColor="#FF000000"
+    android:pathData="M54,27 L77,40 L77,68 L54,81 L31,68 L31,40 Z M60,40 L46,54 L60,68 L64,64 L54,54 L64,44 Z"
+    android:fillType="evenOdd" />
+</vector>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Solo cio' che la piattaforma deve conoscere prima che Compose parta: il fondo della finestra
+       (ossidiana, per non lampeggiare di bianco all'avvio) e lo sfondo dell'icona. Tutto il resto
+       dei colori viene dal tema dell'engine. -->
+  <color name="codex_window_background">#FF120C1F</color>
+  <color name="ic_launcher_background">#FF120C1F</color>
+</resources>

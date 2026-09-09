@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+  <!--
+    La fotocamera serve a una cosa sola: inquadrare il sigillo di qualcuno per aggiungerlo.
+    Non e' richiesta come funzione del dispositivo, perche' un tablet senza fotocamera deve poter
+    installare Codex lo stesso e aggiungere le persone incollando il loro codice.
+  -->
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-feature android:name="android.hardware.camera.any" android:required="false" />
+
+  <!--
+    Il microfono serve alle note vocali, e a niente altro. La registrazione finisce cifrata prima
+    di lasciare il telefono, e il file temporaneo che il registratore di sistema deve per forza
+    scrivere vive nella cache privata dell'app per il tempo della registrazione.
+  -->
+  <uses-permission android:name="android.permission.RECORD_AUDIO" />
+  <uses-feature android:name="android.hardware.microphone" android:required="false" />
+
+  <!--
+    Le vicinanze: due telefoni che si parlano senza rete.
+
+    Sono i permessi che Nearby Connections chiede per usare Bluetooth e Wi-Fi Direct. Quello sulla
+    posizione e' il piu' strano da leggere, ed e' una cosa di Android, non una scelta di Codex: fino
+    ad Android 11 cercare dispositivi Bluetooth **era** un permesso di posizione, perche' i
+    dispositivi intorno dicono dove sei. Dal 12 in poi esistono i permessi giusti e quello vecchio
+    non serve piu', e infatti si ferma li'. `neverForLocation` dice al sistema, e a chi legge lo
+    store, che di quella posizione non ce ne facciamo niente.
+  -->
+  <uses-permission android:name="android.permission.BLUETOOTH_SCAN"
+    android:usesPermissionFlags="neverForLocation" />
+  <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+  <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+  <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"
+    android:usesPermissionFlags="neverForLocation" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+    android:maxSdkVersion="30" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+
+  <application
+    android:name=".CodexApp"
+    android:allowBackup="false"
+    android:enableOnBackInvokedCallback="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:localeConfig="@xml/locales_config"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/Theme.Codex"
+    android:usesCleartextTraffic="false">
+
+    <activity
+      android:name=".MainActivity"
+      android:exported="true"
+      android:launchMode="singleTask"
+      android:windowSoftInputMode="adjustResize">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+
+      <!--
+        "Apri con Codex" su un quadro ricevuto.
+
+        Solo PNG: un JPEG che arrivasse qui non potrebbe contenere niente, perche' la ricompressione
+        si porta via i bit bassi. Comparire fra le app possibili per poi dire "qui non c'e' niente"
+        sarebbe peggio che non comparire.
+      -->
+      <intent-filter android:label="@string/painting_open_label">
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:mimeType="image/png" />
+      </intent-filter>
+      <intent-filter android:label="@string/painting_open_label">
+        <action android:name="android.intent.action.SEND" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:mimeType="image/png" />
+      </intent-filter>
+
+      <!--
+        L'invito a un gruppo. Toccarlo apre Codex e basta: non fa entrare in niente. La chiave la
+        consegna una persona, dopo aver visto arrivare la richiesta.
+      -->
+      <intent-filter android:label="@string/group_join">
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="codex" android:host="gruppo" />
+      </intent-filter>
+    </activity>
+
+    <!--
+      Le notifiche in arrivo. `exported="false"`: e' Firebase Messaging dentro il processo a
+      consegnarci la spinta, non un'altra applicazione.
+    -->
+    <service
+      android:name=".notifications.CodexMessagingService"
+      android:exported="false">
+      <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT" />
+      </intent-filter>
+    </service>
+
+    <!--
+      Il servizio delle vicinanze: esiste solo quando si sceglie "sempre".
+      Il sistema mostra una notifica fissa mentre e' acceso, ed e' giusto che si veda: un'antenna
+      accesa a schermo spento e' una cosa che chi ha il telefono deve sapere.
+    -->
+    <service
+      android:name=".nearby.NearbyService"
+      android:exported="false"
+      android:foregroundServiceType="connectedDevice" />
+
+    <!-- L'icona monocroma delle notifiche: la stessa dell'app, in una tinta sola come vuole il sistema. -->
+    <meta-data
+      android:name="com.google.firebase.messaging.default_notification_icon"
+      android:resource="@drawable/ic_launcher_monochrome" />
+
+    <!--
+      Il ponte verso le altre app: vedi `res/xml/file_paths.xml` per cosa lascia passare.
+      `grantUriPermissions` senza `exported`: il permesso lo da' l'intento, una volta e per un file.
+    -->
+    <provider
+      android:name="androidx.core.content.FileProvider"
+      android:authorities="${applicationId}.quadri"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/file_paths" />
+    </provider>
+
+    <!--
+      WorkManager si costruisce da solo all'avvio del processo, e cosi' facendo si perderebbe la
+      fabbrica di Hilt: il lavoro di consegna ha bisogno del magazzino, e senza quella fabbrica non
+      saprebbe costruirlo. Qui si toglie **solo** il suo inizializzatore, non l'intero
+      `androidx.startup`, che serve anche ad altri.
+    -->
+    <provider
+      android:name="androidx.startup.InitializationProvider"
+      android:authorities="${applicationId}.androidx-startup"
+      android:exported="false"
+      tools:node="merge">
+      <meta-data
+        android:name="androidx.work.WorkManagerInitializer"
+        android:value="androidx.startup"
+        tools:node="remove" />
+    </provider>
+  </application>
+
+</manifest>

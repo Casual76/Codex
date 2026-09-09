@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Cosa Codex accetta di far leggere a un'altra app.
+
+  Solo questa cartella, e solo nella cache: sono i PNG dei quadri appena condivisi. Il database, il
+  vault e tutto il resto restano fuori dalla portata del FileProvider, che e' esattamente il motivo
+  per cui qui c'e' un percorso solo e non `<root-path>`.
+-->
+<paths>
+  <cache-path name="quadri-condivisi" path="quadri-condivisi/" />
+</paths>
