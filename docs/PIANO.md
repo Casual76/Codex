@@ -897,7 +897,7 @@ verdi, `engine-doctor` pulito, stato aggiornato qui sotto. Taglie: S ≈ una ses
 - Da qui: ogni aggiornamento è una beta (`beta.2`, `beta.3`, …) finché l'utente dichiara la 1.0.0;
   bug e rifiniture guidati dall'uso reale; il piano si aggiorna con una sezione "Post-beta".
 
-**Stato**: M0 ✅ · M1 ◐ (locale + accesso Google; manca il vault sul cloud) · M2 ✅ (senza suoni) · M3 ✅ (contatti, QR, rito, chiavi, rubrica cercabile; vicinanze rinviate a M7) · M4 ✅ (consegna, notifiche, spunte, "sta scrivendo", presenza, pagine; reazioni e ricerca rinviate) · M5 ✅ (foto, note vocali, visualizzatore, scadenza, visualizza una volta con FLAG_SECURE, cleanupMedia, consegna in background) · M6 ✅ (gruppi, chiave per epoca, posta, inviti per link, regole e Function) · M7 ✅ (trasporto vicino, nome effimero, sfida firmata, servizio, provato fra due dispositivi) · M8 ✅ (storie con chiavi avvolte, blocco per chat, tastiera incognito, inglese completo, callout al primo uso, crediti, dispositivi collegati, eliminazione account, due pannelli sui tablet) · M9 ◐ (engine 1.30.1, R8 provato installando il rilascio, App Check nel codice, audit di permessi e disco, `1.0.0-beta.1`; restano App Check in console, la prova con due account veri sulla release, e la pubblicazione) — al 2026-09-09
+**Stato**: M0 ✅ · M1 ◐ (locale + accesso Google; manca il vault sul cloud) · M2 ✅ (senza suoni) · M3 ✅ (contatti, QR, rito, chiavi, rubrica cercabile; vicinanze rinviate a M7) · M4 ✅ (consegna, notifiche, spunte, "sta scrivendo", presenza, pagine; reazioni e ricerca rinviate) · M5 ✅ (foto, note vocali, visualizzatore, scadenza, visualizza una volta con FLAG_SECURE, cleanupMedia, consegna in background) · M6 ✅ (gruppi, chiave per epoca, posta, inviti per link, regole e Function) · M7 ✅ (trasporto vicino, nome effimero, sfida firmata, servizio, provato fra due dispositivi) · M8 ✅ (storie con chiavi avvolte, blocco per chat, tastiera incognito, inglese completo, callout al primo uso, crediti, dispositivi collegati, eliminazione account, due pannelli sui tablet) · M9 ◐ (engine 1.30.1, R8 provato installando il rilascio, App Check in monitoraggio, audit di permessi e disco, sorgente su GitHub, **`1.0.0-beta.1` pubblicata sul canale beta del Pampa Store il 2026-09-15**; resta la prova con due account veri su una build di rilascio, e da lì in poi la stabilizzazione guidata dall'uso) — al 2026-09-15
 
 ### Chiusura M0 (2026-09-05)
 
@@ -2154,6 +2154,21 @@ fornitori può dargli un gettone valido.
 Decisione: per la beta **App Check resta in monitoraggio** (acceso, misura, non blocca). Il codice
 che installa l'attestazione resta dov'è: quando i verdetti diranno che i gettoni arrivano davvero,
 l'enforcement si accende senza toccare una riga.
+
+**Una correzione, il 15 settembre.** Avevo letto quei `PERMISSION_DENIED` come enforcement acceso.
+Non lo era: la console, guardata davvero, dice *Cloud Firestore — Monitoraggio in corso, 0%
+verificate / 100% non verificate*, e Storage *Non applicato*. Le regole non chiedono `request.app`
+da nessuna parte, quindi App Check non poteva rifiutare niente. I rifiuti venivano dal **contenuto
+di quell'emulatore**: conversazioni nate in locale nelle prove delle vicinanze e una
+`stories/uid-bruno-cloud/items` con un uid inventato: documenti che sul server non sono mai
+esistiti, e le regole di appartenenza li negano — giustamente. La lezione è la solita di questo
+progetto, e stavolta l'ho imparata al contrario: **una coincidenza temporale non è una diagnosi.**
+
+### La beta è uscita (2026-09-15)
+
+`1.0.0-beta.1`, canale beta del Pampa Store, `beta-codex-v1.0.0-beta.1`, 25,1 MB firmati con
+`pampa.jks`. Il canale stabile resta sulla 0.2.4, che finisce in `history`. App Check registrato su
+entrambe le app con Play Integrity, in monitoraggio; gettone di debug registrato.
 
 ---
 
