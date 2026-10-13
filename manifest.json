@@ -24,14 +24,22 @@
       "sizeBytes": 0
     },
     "beta": {
-      "version": "1.0.0-beta.1",
-      "releaseDate": "2026-09-15",
-      "changelog": "La prima beta della Codex riscritta da zero: crittografia vera, sigilli da aprire, gruppi, vicinanze senza rete, storie. Vedi CHANGELOG.md.",
-      "releaseTag": "beta-codex-v1.0.0-beta.1",
-      "apkAsset": "codex-1.0.0-beta.1.apk",
-      "sizeBytes": 25089619
+      "version": "1.0.0-beta.2",
+      "releaseDate": "2026-10-13",
+      "changelog": "Il vetro dell'app è aggiornato (Fluid Engine 2.12.1). I pannelli grandi sono più sfocati e piegano di più la luce ai bordi. I pulsanti si possono tenere premuti e trascinare senza che la pagina scorra, e interruttori e cursori non la fanno più scorrere mentre li muovi. Cambiando scheda, la barra in basso non mostra più per un attimo la pagina nitida sotto il vetro, e la scheda che premi resta leggibile. Le notifiche dentro l'app si tirano giù per leggerle intere e si scartano verso l'alto. La barra delle schede è una capsula di vetro staccata dal bordo, sopra la barra dei gesti, e gli interruttori sono quelli nuovi.",
+      "releaseTag": "beta-codex-v1.0.0-beta.2",
+      "apkAsset": "codex-1.0.0-beta.2.apk",
+      "sizeBytes": 25237077
     },
     "history": [
+      {
+        "version": "1.0.0-beta.1",
+        "releaseDate": "2026-09-15",
+        "changelog": "La prima beta della Codex riscritta da zero: crittografia vera, sigilli da aprire, gruppi, vicinanze senza rete, storie. Vedi CHANGELOG.md.",
+        "releaseTag": "beta-codex-v1.0.0-beta.1",
+        "apkAsset": "codex-1.0.0-beta.1.apk",
+        "sizeBytes": 25089619
+      },
       {
         "version": "0.2.4",
         "releaseDate": "2026-04-05",
