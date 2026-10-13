@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
@@ -33,11 +34,12 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import dev.antigravity.fluidengine.foundation.EngineSettings
 import dev.antigravity.fluidengine.foundation.ThemeMode
+import dev.antigravity.fluidengine.ui.fluid.FluidFloatingTabBar
+import dev.antigravity.fluidengine.ui.fluid.FluidFloatingTabBarDefaults
+import dev.antigravity.fluidengine.ui.fluid.FluidFloatingTabBarInlineBehavior
 import dev.antigravity.fluidengine.ui.fluid.FluidGlassModalHost
 import dev.antigravity.fluidengine.ui.fluid.FluidNotificationHost
 import dev.antigravity.fluidengine.ui.fluid.FluidScrollToTopBus
-import dev.antigravity.fluidengine.ui.fluid.FluidTabBar
-import dev.antigravity.fluidengine.ui.fluid.FluidTabBarDefaults
 import dev.antigravity.fluidengine.ui.fluid.FluidTabItem
 import dev.antigravity.fluidengine.ui.fluid.FluidTabRail
 import dev.antigravity.fluidengine.ui.theme.FluidEmptyState
@@ -46,6 +48,7 @@ import dev.antigravity.fluidengine.ui.fluid.LocalFluidNotificationHostState
 import dev.antigravity.fluidengine.ui.fluid.ProvideFluidChrome
 import dev.antigravity.fluidengine.ui.fluid.fluidGlassModalObscured
 import dev.antigravity.fluidengine.ui.fluid.rememberFluidChromeController
+import dev.antigravity.fluidengine.ui.fluid.rememberFluidFloatingTabBarScrollConnection
 import dev.antigravity.fluidengine.ui.fluid.rememberFluidGlassModalHostState
 import dev.antigravity.fluidengine.ui.fluid.rememberFluidNotificationHostState
 import dev.antigravity.fluidengine.ui.fluid.rememberGlassBackdrop
@@ -157,7 +160,7 @@ fun CodexRoot(
         controller = chromeController,
         // Lo spazio che la barra occuperebbe torna al contenuto come spaziatura in fondo: le liste
         // finiscono sopra la barra invece che dietro. Con la guida di lato non serve.
-        bottomInset = if (wide) 0.dp else FluidTabBarDefaults.ContentInset,
+        bottomInset = if (wide) 0.dp else FluidFloatingTabBarDefaults.ContentInset,
         scrollToTop = scrollToTop,
       ) {
         Row(modifier = Modifier.fillMaxSize()) {
@@ -346,14 +349,30 @@ fun CodexRoot(
       // Dentro una conversazione la barra sparisce: e' una pagina spinta, e la scrittura si prende
       // tutto lo spazio in fondo. In orizzontale la navigazione sta gia' di lato, dentro la Row.
       if (!wide && !onChat) {
-        FluidTabBar(
-          items = tabItems,
-          selectedRoute = selectedRoute,
-          onSelect = { item -> navController.navigateToTab(item.route) },
-          onReselect = { scrollToTop.request() },
-          backdrop = backdrop,
-          modifier = Modifier.align(Alignment.BottomCenter),
-        )
+        // La barra non porta con se' i margini: il gutter laterale, lo stacco da sotto e lo spazio
+        // della barra di sistema li mette chi la posa, ed e' quello che lascia la capsula sopra il
+        // gesto di sistema invece che a filo. Resta sempre aperta (`Never`): a nessuna pagina di
+        // Codex e' attaccata una connessione di scorrimento che la possa ripiegare.
+        Box(
+          modifier = Modifier
+            .align(Alignment.BottomCenter)
+            .navigationBarsPadding()
+            .padding(
+              horizontal = FluidFloatingTabBarDefaults.HorizontalMargin,
+              vertical = FluidFloatingTabBarDefaults.BottomMargin,
+            ),
+        ) {
+          FluidFloatingTabBar(
+            items = tabItems,
+            selectedRoute = selectedRoute,
+            onSelect = { item -> navController.navigateToTab(item.route) },
+            onReselect = { scrollToTop.request() },
+            scrollConnection = rememberFluidFloatingTabBarScrollConnection(
+              inlineBehavior = FluidFloatingTabBarInlineBehavior.Never,
+            ),
+            backdrop = backdrop,
+          )
+        }
       }
 
       // Sopra la barra, ed e' tutto il motivo per cui i modali stanno alla radice: un pop-up su cui
