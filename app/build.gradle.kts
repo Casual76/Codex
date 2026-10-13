@@ -53,8 +53,8 @@ android {
     minSdk = 28
     targetSdk = 36
     // versionCode 1..99 erano le build di sviluppo; la prima beta sul Pampa Store parte da 100.
-    versionCode = 101
-    versionName = "1.0.0-beta.2"
+    versionCode = 102
+    versionName = "1.0.0-beta.3"
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
